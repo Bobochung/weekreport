@@ -1,25 +1,42 @@
 package com.rimi.report.service;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.rimi.report.entity.Head;
+
 public interface HeadService {
 	/**
-	 * 添加管理员
+	 * 添加主管
 	 */
-	void add();
+	void add(Head head);
 	/**
-	 * 删除管理员
+	 * 删除主管
 	 */
-	void delete();
+	void delete(Head head);
 	/**
-	 * 更新管理员
+	 * 更新主管
 	 */
-	void update();
+	void update(Head head);
 	/**
-	 * 管理员登录
+	 * 主管登录
 	 */
-	void login();
+	Head login(String name,String password,HttpServletRequest request);
+	
 	/**
-	 * 获得管理员总数
+	 * 主管注册
+	 * 
+	 */
+	boolean register(String name,String password,HttpServletRequest request);
+	/**
+	 * 获得主管总数
 	 */
 	int total();
+	/**
+	 * 通过ID查询主管
+	 * @param id
+	 * @return
+	 */
+	
+	Head getByID(int id);
 
 }

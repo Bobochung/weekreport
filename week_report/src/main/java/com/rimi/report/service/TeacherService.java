@@ -1,25 +1,41 @@
 package com.rimi.report.service;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.rimi.report.entity.Teacher;
+
 public interface TeacherService {
 	/**
-	 * 添加管理员
+	 * 添加教师
 	 */
-	void add();
+	void add(Teacher teacher);
 	/**
-	 * 删除管理员
+	 * 删除教师
 	 */
-	void delete();
+	void delete(Teacher teacher);
 	/**
-	 * 更新管理员
+	 * 更新教师
 	 */
-	void update();
+	void update(Teacher teacher);
 	/**
-	 * 管理员登录
+	 * 教师登录
 	 */
-	void login();
+	Teacher login(String name,String password,HttpServletRequest request);
+	
 	/**
-	 * 获得管理员总数
+	 * 教师注册
+	 */
+	boolean register(String name,String password,HttpServletRequest request);
+	/**
+	 * 获得教师总数
 	 */
 	int total();
+	/**
+	 * 通过ID查询教师
+	 * @param id
+	 * @return
+	 */
+	
+	Teacher getByID(int id);
 
 }

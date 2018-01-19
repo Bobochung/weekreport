@@ -32,9 +32,18 @@ public class Keys {
 	 * 下周情况
 	 */
 	public static final String NEXTCONTENTPRO_LIST = "nextcontentprolist";
+	
+	
+	
+	/**
+	 * 分页
+	 */
 
 	
 	
+	/**
+	 * 单条数据
+	 */
 	
 	
 	

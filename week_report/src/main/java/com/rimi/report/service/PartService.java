@@ -1,25 +1,37 @@
 package com.rimi.report.service;
 
+import java.util.List;
+
+import com.rimi.report.entity.Part;
+
 public interface PartService {
 	/**
-	 * 添加管理员
+	 * 添加部门
 	 */
-	void add();
+	void add(Part part);
 	/**
-	 * 删除管理员
+	 * 删除部门
 	 */
-	void delete();
+	void delete(Part part);
 	/**
-	 * 更新管理员
+	 * 更新部门
 	 */
-	void update();
+	void update(Part part);
+	
 	/**
-	 * 管理员登录
-	 */
-	void login();
-	/**
-	 * 获得管理员总数
+	 * 获得部门总数
 	 */
 	int total();
+	
+	/**
+	 * 得到部门列表
+	 */
+	List<Part> list();
+	
+	/**
+	 * 根据ID得到部门
+	 * @return
+	 */	
+	Part getByID();
 
 }
