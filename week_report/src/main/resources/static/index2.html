@@ -1,15 +1,15 @@
-﻿<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
 	<title>Cloud Admin | Dashboard</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"/>
-	<meta name="description" content=""/>
-	<meta name="author" content=""/>
-	<link rel="stylesheet" type="text/css" href="css/cloud-admin.css" />
-	<link rel="stylesheet" type="text/css"  href="css/themes/default.css" id="skin-switcher" />
-	<link rel="stylesheet" type="text/css"  href="css/responsive.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="stylesheet" type="text/css" href="css/cloud-admin.css" >
+	<link rel="stylesheet" type="text/css"  href="css/themes/default.css" id="skin-switcher" >
+	<link rel="stylesheet" type="text/css"  href="css/responsive.css" >
 	<!-- STYLESHEETS --><!--[if lt IE 9]><script src="js/flot/excanvas.min.js"></script><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
 	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<!-- ANIMATE -->
@@ -17,13 +17,13 @@
 	<!-- DATE RANGE PICKER -->
 	<link rel="stylesheet" type="text/css" href="js/bootstrap-daterangepicker/daterangepicker-bs3.css" />
 	<!-- TODO -->
-	<link rel="stylesheet" type="text/css" href="../static/js/jquery-todo/css/styles.css" />
+	<link rel="stylesheet" type="text/css" href="js/jquery-todo/css/styles.css" />
 	<!-- FULL CALENDAR -->
-	<link rel="stylesheet" type="text/css" href="../static/js/fullcalendar/fullcalendar.min.css" />
+	<link rel="stylesheet" type="text/css" href="js/fullcalendar/fullcalendar.min.css" />
 	<!-- GRITTER -->
-	<link rel="stylesheet" type="text/css" href="../static/js/gritter/css/jquery.gritter.css" />
+	<link rel="stylesheet" type="text/css" href="js/gritter/css/jquery.gritter.css" />
 	<!-- FONTS -->
-	<link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'/>
+	<link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<!-- HEADER -->
@@ -52,287 +52,42 @@
 				</div>
 				<!-- NAVBAR LEFT -->
 				<ul class="nav navbar-nav pull-left hidden-xs" id="navbar-left">
-					<li class="dropdown">
-						<a href="#" class="team-status-toggle dropdown-toggle tip-bottom" data-toggle="tooltip" title="Toggle Team View">
-							<i class="fa fa-users"></i>
-							<span class="name">Team Status</span>
-							<i class="fa fa-angle-down"></i>
-						</a>
-					</li>
+					
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<i class="fa fa-cog"></i>
-							<span class="name">Skins</span>
+							<span class="name">主题</span>
 							<i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu skins">
 							<li class="dropdown-title">
-								<span><i class="fa fa-leaf"></i> Theme Skins</span>
+								<span><i class="fa fa-leaf"></i> 选择主题</span>
 							</li>
-							<li><a href="#" data-skin="default">Subtle (default)</a></li>
-							<li><a href="#" data-skin="night">Night</a></li>
-							<li><a href="#" data-skin="earth">Earth</a></li>
-							<li><a href="#" data-skin="utopia">Utopia</a></li>
-							<li><a href="#" data-skin="nature">Nature</a></li>
-							<li><a href="#" data-skin="graphite">Graphite</a></li>
+							<li><a href="#" data-skin="default">默认</a></li>
+							<li><a href="#" data-skin="night">夜晚</a></li>
+							<li><a href="#" data-skin="earth">地球</a></li>
+							<li><a href="#" data-skin="utopia">乌托邦</a></li>
+							<li><a href="#" data-skin="nature">自然</a></li>
+							<li><a href="#" data-skin="graphite">石墨</a></li>
 						 </ul>
 					</li>
 				</ul>
 				<!-- /NAVBAR LEFT -->
 				<!-- BEGIN TOP NAVIGATION MENU -->					
 				<ul class="nav navbar-nav pull-right">
-					<!-- BEGIN NOTIFICATION DROPDOWN -->	
-					<li class="dropdown" id="header-notification">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="fa fa-bell"></i>
-							<span class="badge">7</span>						
-						</a>
-						<ul class="dropdown-menu notification">
-							<li class="dropdown-title">
-								<span><i class="fa fa-bell"></i> 7 Notifications</span>
-							</li>
-							<li>
-								<a href="#">
-									<span class="label label-success"><i class="fa fa-user"></i></span>
-									<span class="body">
-										<span class="message">5 users online. </span>
-										<span class="time">
-											<i class="fa fa-clock-o"></i>
-											<span>Just now</span>
-										</span>
-									</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<span class="label label-primary"><i class="fa fa-comment"></i></span>
-									<span class="body">
-										<span class="message">Martin commented.</span>
-										<span class="time">
-											<i class="fa fa-clock-o"></i>
-											<span>19 mins</span>
-										</span>
-									</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<span class="label label-warning"><i class="fa fa-lock"></i></span>
-									<span class="body">
-										<span class="message">DW1 server locked.</span>
-										<span class="time">
-											<i class="fa fa-clock-o"></i>
-											<span>32 mins</span>
-										</span>
-									</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<span class="label label-info"><i class="fa fa-twitter"></i></span>
-									<span class="body">
-										<span class="message">Twitter connected.</span>
-										<span class="time">
-											<i class="fa fa-clock-o"></i>
-											<span>55 mins</span>
-										</span>
-									</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<span class="label label-danger"><i class="fa fa-heart"></i></span>
-									<span class="body">
-										<span class="message">Jane liked. </span>
-										<span class="time">
-											<i class="fa fa-clock-o"></i>
-											<span>2 hrs</span>
-										</span>
-									</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<span class="label label-warning"><i class="fa fa-exclamation-triangle"></i></span>
-									<span class="body">
-										<span class="message">Database overload.</span>
-										<span class="time">
-											<i class="fa fa-clock-o"></i>
-											<span>6 hrs</span>
-										</span>
-									</span>
-								</a>
-							</li>
-							<li class="footer">
-								<a href="#">See all notifications <i class="fa fa-arrow-circle-right"></i></a>
-							</li>
-						</ul>
-					</li>
-					<!-- END NOTIFICATION DROPDOWN -->
-					<!-- BEGIN INBOX DROPDOWN -->
-					<li class="dropdown" id="header-message">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-envelope"></i>
-						<span class="badge">3</span>
-						</a>
-						<ul class="dropdown-menu inbox">
-							<li class="dropdown-title">
-								<span><i class="fa fa-envelope-o"></i> 3 Messages</span>
-								<span class="compose pull-right tip-right" title="Compose message"><i class="fa fa-pencil-square-o"></i></span>
-							</li>
-							<li>
-								<a href="#">
-									<img src="img/avatars/avatar2.jpg" alt="" />
-									<span class="body">
-										<span class="from">Jane Doe</span>
-										<span class="message">
-										Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse mole ...
-										</span> 
-										<span class="time">
-											<i class="fa fa-clock-o"></i>
-											<span>Just Now</span>
-										</span>
-									</span>
-									 
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="img/avatars/avatar1.jpg" alt="" />
-									<span class="body">
-										<span class="from">Vince Pelt</span>
-										<span class="message">
-										Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse mole ...
-										</span> 
-										<span class="time">
-											<i class="fa fa-clock-o"></i>
-											<span>15 min ago</span>
-										</span>
-									</span>
-									 
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="img/avatars/avatar8.jpg" alt="" />
-									<span class="body">
-										<span class="from">Debby Doe</span>
-										<span class="message">
-										Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse mole ...
-										</span> 
-										<span class="time">
-											<i class="fa fa-clock-o"></i>
-											<span>2 hours ago</span>
-										</span>
-									</span>
-									 
-								</a>
-							</li>
-							<li class="footer">
-								<a href="#">See all messages <i class="fa fa-arrow-circle-right"></i></a>
-							</li>
-						</ul>
-					</li>
-					<!-- END INBOX DROPDOWN -->
-					<!-- BEGIN TODO DROPDOWN -->
-					<li class="dropdown" id="header-tasks">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-tasks"></i>
-						<span class="badge">3</span>
-						</a>
-						<ul class="dropdown-menu tasks">
-							<li class="dropdown-title">
-								<span><i class="fa fa-check"></i> 6 tasks in progress</span>
-							</li>
-							<li>
-								<a href="#">
-									<span class="header clearfix">
-										<span class="pull-left">Software Update</span>
-										<span class="pull-right">60%</span>
-									</span>
-									<div class="progress">
-									  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-										<span class="sr-only">60% Complete</span>
-									  </div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<span class="header clearfix">
-										<span class="pull-left">Software Update</span>
-										<span class="pull-right">25%</span>
-									</span>
-									<div class="progress">
-									  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
-										<span class="sr-only">25% Complete</span>
-									  </div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<span class="header clearfix">
-										<span class="pull-left">Software Update</span>
-										<span class="pull-right">40%</span>
-									</span>
-									<div class="progress progress-striped">
-									  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-										<span class="sr-only">40% Complete</span>
-									  </div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<span class="header clearfix">
-										<span class="pull-left">Software Update</span>
-										<span class="pull-right">70%</span>
-									</span>
-									<div class="progress progress-striped active">
-									  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
-										<span class="sr-only">70% Complete</span>
-									  </div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<span class="header clearfix">
-										<span class="pull-left">Software Update</span>
-										<span class="pull-right">65%</span>
-									</span>
-									<div class="progress">
-									  <div class="progress-bar progress-bar-success" style="width: 35%">
-										<span class="sr-only">35% Complete (success)</span>
-									  </div>
-									  <div class="progress-bar progress-bar-warning" style="width: 20%">
-										<span class="sr-only">20% Complete (warning)</span>
-									  </div>
-									  <div class="progress-bar progress-bar-danger" style="width: 10%">
-										<span class="sr-only">10% Complete (danger)</span>
-									  </div>
-									</div>
-								</a>
-							</li>
-							<li class="footer">
-								<a href="#">See all tasks <i class="fa fa-arrow-circle-right"></i></a>
-							</li>
-						</ul>
-					</li>
+					
 					<!-- END TODO DROPDOWN -->
 					<!-- BEGIN USER LOGIN DROPDOWN -->
 					<li class="dropdown user" id="header-user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<img alt="" src="img/avatars/avatar3.jpg" />
-							<span class="username">John Doe</span>
+							<span class="username">用户名</span>
 							<i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
-							<li><a href="#"><i class="fa fa-cog"></i> Account Settings</a></li>
-							<li><a href="#"><i class="fa fa-eye"></i> Privacy Settings</a></li>
-							<li><a href="login.html"><i class="fa fa-power-off"></i> Log Out</a></li>
+							<li><a href="#"><i class="fa fa-user"></i>个人信息</a></li>
+							<li><a href="#"><i class="fa fa-eye"></i> 修改密码</a></li>
+							<li><a href="login.html"><i class="fa fa-power-off"></i> 注销</a></li>
 						</ul>
 					</li>
 					<!-- END USER LOGIN DROPDOWN -->
@@ -632,18 +387,14 @@
 		  </div>
 		<!-- /TEAM STATUS -->
 	</header>
-	<!--/HEADER -->
-	<div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
+	</div>
 	<!-- PAGE -->
 	<section id="page">
 				<!-- SIDEBAR -->
 				<div id="sidebar" class="sidebar">
 					<div class="sidebar-menu nav-collapse">
 						<div class="divide-20"></div>
-						<!-- SEARCH BAR -->
-						<div id="search-bar">
-							<input class="search" type="text" placeholder="Search"><i class="fa fa-search search-icon"></i>
-						</div>
+				
 						<!-- /SEARCH BAR -->
 						
 						<!-- SIDEBAR QUICK-LAUNCH -->
@@ -654,13 +405,13 @@
 						<ul>
 							<li class="active">
 								<a href="index.html">
-								<i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Dashboard</span>
+								<i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">仪表盘</span>
 								<span class="selected"></span>
 								</a>					
 							</li>
 							<li class="has-sub">
 								<a href="javascript:;" class="">
-								<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">UI Features</span>
+								<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">UI元素</span>
 								<span class="arrow"></span>
 								</a>
 								<ul class="sub">
@@ -682,10 +433,9 @@
 									</li>
 								</ul>
 							</li>
-							<li><a class="" href="frontend_theme/index.html" target="_blank"><i class="fa fa-desktop fa-fw"></i> <span class="menu-text">Frontend Theme</span></a></li><li><a class="" href="inbox.html"><i class="fa fa-envelope-o fa-fw"></i> <span class="menu-text">Inbox</span></a></li>
 							<li class="has-sub">
 								<a href="javascript:;" class="">
-								<i class="fa fa-table fa-fw"></i> <span class="menu-text">Tables</span>
+								<i class="fa fa-table fa-fw"></i> <span class="menu-text">表格</span>
 								<span class="arrow"></span>
 								</a>
 								<ul class="sub">
@@ -696,7 +446,7 @@
 							</li>
 							<li class="has-sub">
 								<a href="javascript:;" class="">
-								<i class="fa fa-pencil-square-o fa-fw"></i> <span class="menu-text">Form Elements</span>
+								<i class="fa fa-pencil-square-o fa-fw"></i> <span class="menu-text">表单元素</span>
 								<span class="arrow"></span>
 								</a>
 								<ul class="sub">
@@ -707,22 +457,9 @@
 									<li><a class="" href="dropzone_file_upload.html"><span class="sub-menu-text">Dropzone File Upload</span></a></li>
 								</ul>
 							</li>
-							<li><a class="" href="widgets_box.html"><i class="fa fa-th-large fa-fw"></i> <span class="menu-text">Widgets & Box</span></a></li>
 							<li class="has-sub">
 								<a href="javascript:;" class="">
-								<i class="fa fa-bar-chart-o fa-fw"></i> <span class="menu-text">Visual Charts</span>
-								<span class="arrow"></span>
-								</a>
-								<ul class="sub">
-									<li><a class="" href="flot_charts.html"><span class="sub-menu-text">Flot Charts</span></a></li>
-									<li><a class="" href="xcharts.html"><span class="sub-menu-text">xCharts</span></a></li>
-									
-									<li><a class="" href="others.html"><span class="sub-menu-text">Others</span></a></li>
-								</ul>
-							</li>
-							<li class="has-sub">
-								<a href="javascript:;" class="">
-								<i class="fa fa-columns fa-fw"></i> <span class="menu-text">Layouts</span>
+								<i class="fa fa-columns fa-fw"></i> <span class="menu-text">布局</span>
 								<span class="arrow"></span>
 								</a>
 								<ul class="sub">
@@ -732,58 +469,8 @@
 									<li><a class="" href="fixed_header_sidebar.html"><span class="sub-menu-text">Fixed Header & Sidebar</span></a></li>
 								</ul>
 							</li>
-							<li><a class="" href="calendar.html"><i class="fa fa-calendar fa-fw"></i> 
-								<span class="menu-text">Calendar 
-									<span class="tooltip-error pull-right" title="" data-original-title="3 New Events">
-										<span class="label label-success">New</span>
-									</span>
-								</span>
-								</a>
-							</li>
-							<li class="has-sub">
-								<a href="javascript:;" class="">
-								<i class="fa fa-map-marker fa-fw"></i> <span class="menu-text">Maps</span>
-								<span class="arrow"></span>
-								</a>
-								<ul class="sub">
-									<li><a class="" href="google_maps.html"><span class="sub-menu-text">Google Maps</span></a></li>
-									<li><a class="" href="vector_maps.html"><span class="sub-menu-text">Vector Maps</span></a></li>
-								</ul>
-							</li>
-							<li><a class="" href="gallery.html"><i class="fa fa-picture-o fa-fw"></i> <span class="menu-text">Gallery</span></a></li>
-							<li class="has-sub">
-								<a href="javascript:;" class="">
-								<i class="fa fa-file-text fa-fw"></i> <span class="menu-text">More Pages</span>
-								<span class="arrow"></span>
-								</a>
-								<ul class="sub">
-									<li><a class="" href="login.html"><span class="sub-menu-text">Login & Register Option 1</span></a></li><li><a class="" href="login_bg.html"><span class="sub-menu-text">Login & Register Option 2</span></a></li>
-									<li><a class="" href="user_profile.html"><span class="sub-menu-text">User profile</span></a></li>
-									
-									<li><a class="" href="chats.html"><span class="sub-menu-text">Chats</span></a></li>
-									<li><a class="" href="todo_timeline.html"><span class="sub-menu-text">Todo & Timeline</span></a></li>
-									<li><a class="" href="address_book.html"><span class="sub-menu-text">Address Book</span></a></li>
-									
-									<li><a class="" href="pricing.html"><span class="sub-menu-text">Pricing</span></a></li>
-									<li><a class="" href="invoice.html"><span class="sub-menu-text">Invoice</span></a></li>
-									<li><a class="" href="orders.html"><span class="sub-menu-text">Orders</span></a></li>
-								</ul>
-							</li>
-							<li class="has-sub">
-								<a href="javascript:;" class="">
-								<i class="fa fa-briefcase fa-fw"></i> <span class="menu-text">Other Pages <span class="badge pull-right">9</span></span>
-								<span class="arrow"></span>
-								</a>
-								<ul class="sub">
-									<li><a class="" href="search_results.html"><span class="sub-menu-text">Search Results</span></a></li>
-									<li><a class="" href="email_templates.html"><span class="sub-menu-text">Email Templates</span></a></li>
-									
-									<li><a class="" href="error_404.html"><span class="sub-menu-text">Error 404 Option 1</span></a></li><li><a class="" href="error_404_2.html"><span class="sub-menu-text">Error 404 Option 2</span></a></li><li><a class="" href="error_404_3.html"><span class="sub-menu-text">Error 404 Option 3</span></a></li>
-									<li><a class="" href="error_500.html"><span class="sub-menu-text">Error 500 Option 1</span></a></li><li><a class="" href="error_500_2.html"><span class="sub-menu-text">Error 500 Option 2</span></a></li>
-									<li><a class="" href="faq.html"><span class="sub-menu-text">FAQ</span></a></li>
-									<li><a class="" href="blank_page.html"><span class="sub-menu-text">Blank Page</span></a></li>
-								</ul>
-							</li>
+							
+							
 						</ul>
 						<!-- /SIDEBAR MENU -->
 					</div>
@@ -823,13 +510,13 @@
 									<ul class="breadcrumb">
 										<li>
 											<i class="fa fa-home"></i>
-											<a href="index.html">Home</a>
+											<a href="index2.html">主页</a>
 										</li>
-										<li>Dashboard - shared on weidea.net</li>
+										
 									</ul>
 									<!-- /BREADCRUMBS -->
 									<div class="clearfix">
-										<h3 class="content-title pull-left">Dashboard</h3>
+										<h3 class="content-title pull-left">主页</h3>
 										<!-- DATE RANGE PICKER -->
 										<span class="date-range pull-right">
 											<div class="btn-group">
@@ -1667,46 +1354,45 @@
 	<!-- JAVASCRIPTS -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<!-- JQUERY -->
-	<script src="../static/js/jquery/jquery-2.0.3.min.js"></script>
+	<script src="js/jquery/jquery-2.0.3.min.js"></script>
 	<!-- JQUERY UI-->
-	<script src="../static/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
 	<!-- BOOTSTRAP -->
-	<script src="../static/bootstrap-dist/js/bootstrap.min.js"></script>
+	<script src="bootstrap-dist/js/bootstrap.min.js"></script>
 	
 		
 	<!-- DATE RANGE PICKER -->
-	<script src="../static/js/bootstrap-daterangepicker/moment.min.js"></script>
+	<script src="js/bootstrap-daterangepicker/moment.min.js"></script>
 	
-	<script src="../static/js/bootstrap-daterangepicker/daterangepicker.min.js"></script>
+	<script src="js/bootstrap-daterangepicker/daterangepicker.min.js"></script>
 	<!-- SLIMSCROLL -->
-	<script type="text/javascript" src="../static/js/jQuery-slimScroll-1.3.0/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript" src="js/jQuery-slimScroll-1.3.0/jquery.slimscroll.min.js"></script>
 	<!-- SLIMSCROLL -->
-	<script type="text/javascript" src="../static/js/jQuery-slimScroll-1.3.0/jquery.slimscroll.min.js"></script><script type="text/javascript" src="js/jQuery-slimScroll-1.3.0/slimScrollHorizontal.min.js"></script>
+	<script type="text/javascript" src="js/jQuery-slimScroll-1.3.0/jquery.slimscroll.min.js"></script><script type="text/javascript" src="js/jQuery-slimScroll-1.3.0/slimScrollHorizontal.min.js"></script>
 	<!-- BLOCK UI -->
-	<script type="text/javascript" src="../static/js/jQuery-BlockUI/jquery.blockUI.min.js"></script>
+	<script type="text/javascript" src="js/jQuery-BlockUI/jquery.blockUI.min.js"></script>
 	<!-- SPARKLINES -->
-	<script type="text/javascript" src="../static/js/sparklines/jquery.sparkline.min.js"></script>
+	<script type="text/javascript" src="js/sparklines/jquery.sparkline.min.js"></script>
 	<!-- EASY PIE CHART -->
-	<script src="../static/js/jquery-easing/jquery.easing.min.js"></script>
-	<script type="text/javascript" src="../static/js/easypiechart/jquery.easypiechart.min.js"></script>
+	<script src="js/jquery-easing/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="js/easypiechart/jquery.easypiechart.min.js"></script>
 	<!-- FLOT CHARTS -->
-	<script src="../static/js/flot/jquery.flot.min.js"></script>
-	<script src="../static/js/flot/jquery.flot.time.min.js"></script>
-    <script src="../static/js/flot/jquery.flot.selection.min.js"></script>
-	<script src="../static/js/flot/jquery.flot.resize.min.js"></script>
-    <script src="../static/js/flot/jquery.flot.pie.min.js"></script>
-    <script src="../static/js/flot/jquery.flot.stack.min.js"></script>
-    <script src="../static/js/flot/jquery.flot.crosshair.min.js"></script>
+	<script src="js/flot/jquery.flot.min.js"></script>
+	<script src="js/flot/jquery.flot.time.min.js"></script>
+    <script src="js/flot/jquery.flot.selection.min.js"></script>
+	<script src="js/flot/jquery.flot.resize.min.js"></script>
+    <script src="js/flot/jquery.flot.pie.min.js"></script>
+    <script src="js/flot/jquery.flot.stack.min.js"></script>
+    <script src="js/flot/jquery.flot.crosshair.min.js"></script>
 	<!-- TODO -->
-	<script type="text/javascript" src="../static/js/jquery-todo/js/paddystodolist.js"></script>
+	<script type="text/javascript" src="js/jquery-todo/js/paddystodolist.js"></script>
 	<!-- TIMEAGO -->
-	<script type="text/javascript" src="../static/js/timeago/jquery.timeago.min.js"></script>
+	<script type="text/javascript" src="js/timeago/jquery.timeago.min.js"></script>
 	<!-- FULL CALENDAR -->
-	<script type="text/javascript" src="../static/js/fullcalendar/fullcalendar.min.js"></script>
+	<script type="text/javascript" src="js/fullcalendar/fullcalendar.min.js"></script>
 	<!-- COOKIE -->
-	<script type="text/javascript" src="../static/js/jQuery-Cookie/jquery.cookie.min.js"></script>
-	<!-- GRITTER -->
-	<script type="text/javascript" src="../static/js/gritter/js/jquery.gritter.min.js"></script>
+	<script type="text/javascript" src="js/jQuery-Cookie/jquery.cookie.min.js"></script>
+	
 	<!-- CUSTOM SCRIPT -->
 	<script src="js/script.js"></script>
 	<script>

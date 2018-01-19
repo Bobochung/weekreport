@@ -1,24 +1,24 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<meta charset="utf-8"/>
 	<title>周报提交系统登录</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"/>
+	<meta name="description" content=""/>
+	<meta name="author" content=""/>
 	<!-- STYLESHEETS --><!--[if lt IE 9]><script src="js/flot/excanvas.min.js"></script><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
-	<link rel="stylesheet" type="text/css" href="../static/css/cloud-admin.css" >
+	<link rel="stylesheet" type="text/css" href="css/cloud-admin.css" />
 	
-	<link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
 	<!-- DATE RANGE PICKER -->
-	<link rel="stylesheet" type="text/css" href="../static/js/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+	<link rel="stylesheet" type="text/css" href="js/bootstrap-daterangepicker/daterangepicker-bs3.css" />
 	<!-- UNIFORM -->
-	<link rel="stylesheet" type="text/css" href="../static/js/uniform/css/uniform.default.min.css" />
+	<link rel="stylesheet" type="text/css" href="js/uniform/css/uniform.default.min.css" />
 	<!-- ANIMATE -->
-	<link rel="stylesheet" type="text/css" href="../static/css/animatecss/animate.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/animatecss/animate.min.css" />
 	<!-- FONTS -->
-	<link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'/>
 </head>
 <body class="login">	
 	<!-- PAGE -->
@@ -30,7 +30,7 @@
 					<div class="row">
 						<div class="col-md-4 col-md-offset-4">
 							<div id="logo">
-								<a href="index.html"><img src="../static/img/logo/logo-alt.png" height="40" alt="logo name" /></a>
+								<a href="index.html"><img src="img/logo/logo-alt.png" height="40" alt="logo name" /></a>
 							</div>
 						</div>
 					</div>
@@ -46,23 +46,23 @@
 							<div class="login-box-plain">
 								<h2 class="bigintro">登录</h2>
 								<div class="divide-40"></div>
-								<form role="form">
-								  <div class="form-group">
-									<label for="exampleInputEmail1">用户名</label>
+								<form role="form" method="post" action="index">
+								 <div class="form-group">
+									<label for="exampleInputUsername">用户名</label>
 									<i class="fa fa-user"></i>
-									<input type="email" class="form-control" id="exampleInputEmail1" >
+									<input type="text" class="form-control" id="exampleInputUsername" />
 								  </div>
 								  <div class="form-group"> 
 									<label for="exampleInputPassword1">密码</label>
 									<i class="fa fa-lock"></i>
-									<input type="password" class="form-control" id="exampleInputPassword1" >
+									<input type="password" class="form-control" id="exampleInputPassword1" />
 								  </div>
 								  <div class="form-group"> 
 									<label for="exampleInputPassword1">身份</label>
 									<select class="form-control">
-									<option>管理员</option>
-									<option>教师</option>
-									<option>主管</option>
+									<option value="admin">管理员</option>
+									<option value="teacher">教师</option>
+									<option value="head">主管</option>
 									</select>
 								  </div>
 								  <div class="form-actions">
@@ -72,7 +72,7 @@
 								</form>
 							
 								<div class="login-helpers">
-									<a href="#" onclick="swapScreen('forgot');return false;">忘记密码?</a> <br>
+									<a href="#" onclick="swapScreen('forgot');return false;">忘记密码?</a> <br/>
 									还没有账户? <a href="#" onclick="swapScreen('register');return false;">立即注册!</a>
 								</div>
 							</div>
@@ -101,18 +101,18 @@
 								  <div class="form-group">
 									<label for="exampleInputUsername">用户名</label>
 									<i class="fa fa-user"></i>
-									<input type="text" class="form-control" id="exampleInputUsername" >
+									<input type="text" class="form-control" id="exampleInputUsername" />
 								  </div>
 								  
 								  <div class="form-group"> 
 									<label for="exampleInputPassword1">密码</label>
 									<i class="fa fa-lock"></i>
-									<input type="password" class="form-control" id="exampleInputPassword1" >
+									<input type="password" class="form-control" id="exampleInputPassword1" />
 								  </div>
 								  <div class="form-group"> 
 									<label for="exampleInputPassword2">确认密码</label>
 									<i class="fa fa-check-square-o"></i>
-									<input type="password" class="form-control" id="exampleInputPassword2" >
+									<input type="password" class="form-control" id="exampleInputPassword2" />
 								  </div>
 								  <div class="form-actions">
 									<button type="submit" class="btn btn-success">注册</button>
@@ -120,7 +120,7 @@
 								</form>
 								
 								<div class="login-helpers">
-									<a href="#" onclick="swapScreen('login');return false;">返回登录</a> <br>
+									<a href="#" onclick="swapScreen('login');return false;">返回登录</a> <br/>
 								</div>
 							</div>
 						</div>
@@ -140,14 +140,14 @@
 								  <div class="form-group">
 									<label for="exampleInputEmail1">Enter your Email address</label>
 									<i class="fa fa-envelope"></i>
-									<input type="email" class="form-control" id="exampleInputEmail1" >
+									<input type="email" class="form-control" id="exampleInputEmail1" />
 								  </div>
 								  <div class="form-actions">
 									<button type="submit" class="btn btn-info">Send Me Reset Instructions</button>
 								  </div>
 								</form>
 								<div class="login-helpers">
-									<a href="#" onclick="swapScreen('login');return false;">Back to Login</a> <br>
+									<a href="#" onclick="swapScreen('login');return false;">Back to Login</a> <br/>
 								</div>
 							</div>
 						</div>
@@ -160,17 +160,17 @@
 	<!-- JAVASCRIPTS -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<!-- JQUERY -->
-	<script src="../static/js/jquery/jquery-2.0.3.min.js"></script>
+	<script src="js/jquery/jquery-2.0.3.min.js"></script>
 	<!-- JQUERY UI-->
-	<script src="../static/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
 	<!-- BOOTSTRAP -->
-	<script src="../static/bootstrap-dist/js/bootstrap.min.js"></script>
+	<script src="bootstrap-dist/js/bootstrap.min.js"></script>
 	
 	
 	<!-- UNIFORM -->
-	<script type="text/javascript" src="../static/js/uniform/jquery.uniform.min.js"></script>
+	<script type="text/javascript" src="js/uniform/jquery.uniform.min.js"></script>
 	<!-- CUSTOM SCRIPT -->
-	<script src="../static/js/script.js"></script>
+	<script src="js/script.js"></script>
 	<script>
 		jQuery(document).ready(function() {		
 			App.setPage("login");  //Set current page
