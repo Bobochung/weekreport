@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rimi.report.mapper.AdminMapper">
+    
+    <insert id="add" parameterType="admin">
+		insert into Admin (admin_name) values (#{name})
+	</insert>
+
+	<delete id="delete" parameterType="admin">
+		delete from admin where id= #{id}
+	</delete>
+
+	<select id="get" parameterType="int" resultType="admin">
+		select * from admin where id= #{id}
+	</select>
+
+	<update id="update" parameterType="admin">
+		update admin set admin_name=#{name} where id=#{id}
+	</update>
+	<select id="list" resultType="admin">
+		select * from admin
+	</select>
+    <select id="total" resultType="int">
+		select count(*) from admin
+	</select>
+
+
+
+
+
+</mapper>
