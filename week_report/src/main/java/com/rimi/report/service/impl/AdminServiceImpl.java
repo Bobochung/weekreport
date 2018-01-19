@@ -2,10 +2,19 @@ package com.rimi.report.service.impl;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.rimi.report.entity.Admin;
+import com.rimi.report.mapper.AdminMapper;
 import com.rimi.report.service.AdminService;
 
+
+@Service
 public class AdminServiceImpl implements AdminService {
+	
+	@Autowired 
+	AdminMapper adminMapper;
 
 	@Override
 	public void add(Admin admin) {
@@ -40,7 +49,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int total() {
 		// TODO Auto-generated method stub
-		return 0;
+		return adminMapper.total();
 	}
 
 	@Override

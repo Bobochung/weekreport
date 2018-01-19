@@ -10,6 +10,9 @@ public class Keys {
 	public static final String HEAD = "head";
 	public static final String TEACHER = "teacher";
 	
+	public static final String LoginType = "type";
+	
+	
 	/**
 	 * 保存人员列表
 	 */	
