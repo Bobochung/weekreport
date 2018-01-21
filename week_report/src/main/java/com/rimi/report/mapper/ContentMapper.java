@@ -3,8 +3,10 @@ package com.rimi.report.mapper;
 import java.util.List;
 import java.util.Map;
 
-import com.rimi.report.entity.Content;
+import org.apache.ibatis.annotations.Mapper;
 
+import com.rimi.report.entity.Content;
+@Mapper
 public interface ContentMapper {
 	
 	/**

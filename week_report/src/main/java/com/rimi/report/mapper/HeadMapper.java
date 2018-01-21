@@ -3,8 +3,11 @@ package com.rimi.report.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.rimi.report.entity.Head;
 
+@Mapper
 public interface HeadMapper {
 	/**
 	 * 删除主管
