@@ -3,8 +3,10 @@ package com.rimi.report.mapper;
 import java.util.List;
 import java.util.Map;
 
-import com.rimi.report.entity.Part;
+import org.apache.ibatis.annotations.Mapper;
 
+import com.rimi.report.entity.Part;
+@Mapper
 public interface PartMapper {
 	/**
 	 * 删除部门
