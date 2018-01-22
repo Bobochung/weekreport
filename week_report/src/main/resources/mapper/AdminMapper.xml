@@ -29,8 +29,5 @@
     <select id="getByName" parameterType="string" resultType="admin">
 		select * from admin where admin_name= #{admin_name}
 	</select>
-
-
-
-
 </mapper>
+
