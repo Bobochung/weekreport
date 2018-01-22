@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rimi.report.mapper.TeacherMapper">
+    
+    <insert id="add" parameterType="teacher">
+		insert into teacher (teacher_name,teacher_password) values (#{teacher_name},#{teacher_password})
+	</insert>
+
+	<delete id="delete" parameterType="teacher">
+		delete from teacher where id= #{id}
+	</delete>
+
+	<select id="get" parameterType="int" resultType="teacher">
+		select * from teacher where id= #{id}
+	</select>
+
+	<update id="update" parameterType="teacher">
+		update teacher set teacher_name=#{teacher_name},teacher_password=#{teacher_password},teacher_tel=#{teacher_tel} where id=#{id}
+	</update>
+	<select id="list" resultType="teacher">
+		select * from teacher
+	</select>
+    <select id="total" resultType="int">
+		select count(*) from teacher
+	</select>
+    <select id="getByNameandPwd" parameterType="string" resultType="teacher">
+		select * from teacher where teacher_name= #{teacher_name} and teacher_password=#{teacher_password}
+	</select>
+    <select id="getByName" parameterType="string" resultType="teacher">
+		select * from teacher where teacher_name= #{teacher_name}
+	</select>
+
+
+
+
+
+</mapper>
