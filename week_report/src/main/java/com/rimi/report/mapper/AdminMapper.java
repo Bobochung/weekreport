@@ -60,5 +60,11 @@ public interface AdminMapper {
 	 * @return
 	 */
 	public Admin getByNameandPwd(String name,String password);
+	/**
+	 * 根据用户名查询用户唯一性。
+	 * @param name
+	 * @return 返回admin不为空，则该用户已经注册
+	 */
+	public Admin getByName(String name);
 
 }

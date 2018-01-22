@@ -12,7 +12,7 @@ public interface HeadService {
 	/**
 	 * 删除主管
 	 */
-	void delete(Head head);
+	void delete(int id);
 	/**
 	 * 更新主管
 	 */
@@ -38,5 +38,12 @@ public interface HeadService {
 	 */
 	
 	Head getByID(int id);
+	
+	/**
+	 * 根据用户名查询用户唯一性。
+	 * @param name
+	 * @return 返回Head不为空，则该用户已经注册
+	 */
+	Head getByName(String name);
 
 }

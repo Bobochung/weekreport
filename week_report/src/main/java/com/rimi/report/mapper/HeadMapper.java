@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.rimi.report.entity.Admin;
 import com.rimi.report.entity.Head;
 
 @Mapper
@@ -59,5 +60,12 @@ public interface HeadMapper {
 	 * @return
 	 */
 	public Head getByNameandPwd(String name,String password);
+	
+	/**
+	 * 根据用户名查询用户唯一性。
+	 * @param name
+	 * @return 返回Head不为空，则该用户已经注册
+	 */
+	public Head getByName(String name);
 
 }

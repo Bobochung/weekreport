@@ -29,8 +29,14 @@ public class Admin {
 	public void setAdmin_tel(String admin_tel) {
 		this.admin_tel = admin_tel;
 	}
-	
-	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Admin [id=" + id + ", admin_name=" + admin_name + ", admin_password=" + admin_password + ", admin_tel="
+				+ admin_tel + ", toString()=" + super.toString() + "]";
+	}
 	
 
 }

@@ -2,26 +2,34 @@ package com.rimi.report.service.impl;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.rimi.report.entity.Teacher;
+import com.rimi.report.mapper.TeacherMapper;
 import com.rimi.report.service.TeacherService;
 
+@Service
 public class TeacherServiceImpl implements TeacherService{
+	
+	@Autowired
+	TeacherMapper teacherMapper;
 
 	@Override
 	public void add(Teacher teacher) {
-		// TODO Auto-generated method stub
+		teacherMapper.add(teacher);
 		
 	}
 
 	@Override
-	public void delete(Teacher teacher) {
-		// TODO Auto-generated method stub
+	public void delete(int id) {
+		teacherMapper.delete(id);
 		
 	}
 
 	@Override
 	public void update(Teacher teacher) {
-		// TODO Auto-generated method stub
+		teacherMapper.update(teacher);
 		
 	}
 
@@ -39,14 +47,20 @@ public class TeacherServiceImpl implements TeacherService{
 
 	@Override
 	public int total() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return teacherMapper.total();
 	}
 
 	@Override
 	public Teacher getByID(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return teacherMapper.get(id);
+	}
+
+	@Override
+	public Teacher getByName(String name) {
+		
+		return teacherMapper.getByName(name);
 	}
 
 }

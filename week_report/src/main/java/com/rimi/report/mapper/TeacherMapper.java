@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.rimi.report.entity.Head;
 import com.rimi.report.entity.Teacher;
 
 @Mapper
@@ -60,5 +61,12 @@ public interface TeacherMapper {
 	 * @return
 	 */
 	public Teacher getByNameandPwd(String name,String password);
+	
+	/**
+	 * 根据用户名查询用户唯一性。
+	 * @param name
+	 * @return 返回Teacher不为空，则该用户已经注册
+	 */
+	public Teacher getByName(String name);
 
 }

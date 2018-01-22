@@ -15,47 +15,56 @@ public class AdminServiceImpl implements AdminService {
 	
 	@Autowired 
 	AdminMapper adminMapper;
+	
 
 	@Override
 	public void add(Admin admin) {
-		// TODO Auto-generated method stub
+		adminMapper.add(admin);
 
 	}
 
 	@Override
-	public void delete(Admin admin) {
-		// TODO Auto-generated method stub
+	public void delete(int id) {
+		adminMapper.delete(id);
 
 	}
-
+	
 	@Override
 	public void update(Admin admin) {
-		// TODO Auto-generated method stub
-
+		adminMapper.update(admin);
+		
 	}
-
+	
 	@Override
 	public Admin login(String name, String password, HttpServletRequest request) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public boolean register(String name, String password, HttpServletRequest request) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
 	@Override
 	public int total() {
-		// TODO Auto-generated method stub
+		
 		return adminMapper.total();
 	}
 
 	@Override
 	public Admin getByID(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return adminMapper.get(id);
 	}
+
+	@Override
+	public Admin getByName(String name) {
+		
+		return adminMapper.getByName(name);
+	}
+
+	
 
 }

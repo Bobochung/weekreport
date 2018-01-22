@@ -2,26 +2,35 @@ package com.rimi.report.service.impl;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.rimi.report.entity.Head;
+import com.rimi.report.mapper.HeadMapper;
 import com.rimi.report.service.HeadService;
 
+
+@Service
 public class HeadServiceImpl implements HeadService {
+	
+	@Autowired
+	HeadMapper headMapper;
 
 	@Override
 	public void add(Head head) {
-		// TODO Auto-generated method stub
+		headMapper.add(head);
 
 	}
 
 	@Override
-	public void delete(Head head) {
-		// TODO Auto-generated method stub
+	public void delete(int id) {
+		headMapper.delete(id);
 
 	}
 
 	@Override
 	public void update(Head head) {
-		// TODO Auto-generated method stub
+		headMapper.update(head);
 
 	}
 
@@ -39,14 +48,20 @@ public class HeadServiceImpl implements HeadService {
 
 	@Override
 	public int total() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return headMapper.total();
 	}
 
 	@Override
 	public Head getByID(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return headMapper.get(id);
+	}
+
+	@Override
+	public Head getByName(String name) {
+		
+		return headMapper.getByName(name);
 	}
 
 }

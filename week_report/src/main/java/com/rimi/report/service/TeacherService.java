@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.rimi.report.entity.Teacher;
 
+
 public interface TeacherService {
 	/**
 	 * 添加教师
@@ -12,7 +13,7 @@ public interface TeacherService {
 	/**
 	 * 删除教师
 	 */
-	void delete(Teacher teacher);
+	void delete(int id);
 	/**
 	 * 更新教师
 	 */
@@ -37,5 +38,12 @@ public interface TeacherService {
 	 */
 	
 	Teacher getByID(int id);
+	
+	/**
+	 * 根据用户名查询用户唯一性。
+	 * @param name
+	 * @return 返回Teacher不为空，则该用户已经注册
+	 */
+	Teacher getByName(String name);
 
 }

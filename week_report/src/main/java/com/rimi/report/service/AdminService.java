@@ -12,7 +12,7 @@ public interface AdminService {
 	/**
 	 * 删除管理员
 	 */
-	void delete(Admin admin);
+	void delete(int id);
 	/**
 	 * 更新管理员
 	 */
@@ -37,6 +37,13 @@ public interface AdminService {
 	 */
 	
 	Admin getByID(int id);
+	
+	/**
+	 * 根据用户名查询用户唯一性。
+	 * @param name
+	 * @return 返回admin不为空，则该用户已经注册
+	 */
+	Admin getByName(String name);
 	
 
 }
