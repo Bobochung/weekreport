@@ -3,31 +3,31 @@
 <mapper namespace="com.rimi.report.mapper.AdminMapper">
     
     <insert id="add" parameterType="admin">
-		insert into Admin (admin_name,admin_password) values (#{admin_name},#{admin_password})
+		insert into admin_ (admin_name,admin_password) values (#{admin_name},#{admin_password})
 	</insert>
 
 	<delete id="delete" parameterType="admin">
-		delete from admin where id= #{id}
+		delete from admin_ where id= #{id}
 	</delete>
 
 	<select id="get" parameterType="int" resultType="admin">
-		select * from admin where id= #{id}
+		select * from admin_ where id= #{id}
 	</select>
 
 	<update id="update" parameterType="admin">
-		update admin set admin_name=#{admin_name},admin_password=#{admin_password},admin_tel=#{admin_tel} where id=#{id}
+		update admin_ set admin_name=#{admin_name},admin_password=#{admin_password},admin_tel=#{admin_tel} where id=#{id}
 	</update>
 	<select id="list" resultType="admin">
-		select * from admin
+		select * from admin_
 	</select>
     <select id="total" resultType="int">
-		select count(*) from admin
+		select count(*) from admin_
 	</select>
     <select id="getByNameandPwd" parameterType="string" resultType="admin">
-		select * from admin where admin_name= #{admin_name} and admin_password=#{admin_password}
+		select * from admin_ where admin_name= #{admin_name} and admin_password=#{admin_password}
 	</select>
     <select id="getByName" parameterType="string" resultType="admin">
-		select * from admin where admin_name= #{admin_name}
+		select * from admin_ where admin_name= #{admin_name}
 	</select>
 </mapper>
 
