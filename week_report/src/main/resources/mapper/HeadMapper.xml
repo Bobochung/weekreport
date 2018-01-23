@@ -32,7 +32,7 @@
     <select id="total" resultType="int">
 		select count(*) from head
 	</select>
-    <select id="getByNameandPwd" parameterType="string" resultType="head">
+    <select id="getByNameandPwd" resultType="head">
 		select * from head where head_name= #{head_name} and head_password=#{head_password}
 	</select>
     <select id="getByName" parameterType="string" resultType="head">

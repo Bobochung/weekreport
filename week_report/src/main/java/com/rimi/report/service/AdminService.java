@@ -20,7 +20,7 @@ public interface AdminService {
 	/**
 	 * 管理员登录
 	 */
-	Admin login(String name,String password,HttpServletRequest request);
+	boolean login(HttpServletRequest request);
 	
 	/**
 	 * 管理员注册

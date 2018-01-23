@@ -1,6 +1,7 @@
 package com.rimi.report.entity;
 
 public class Classes {
+	
 	private int id;
 	private String classes;
 	
@@ -18,7 +19,10 @@ public class Classes {
 		this.classes = classes;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Classes [id=" + id + ", classes=" + classes + "]";
+	}
 	
 	
 

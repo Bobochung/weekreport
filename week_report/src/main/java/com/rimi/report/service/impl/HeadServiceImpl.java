@@ -5,9 +5,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.rimi.report.entity.Admin;
 import com.rimi.report.entity.Head;
 import com.rimi.report.mapper.HeadMapper;
 import com.rimi.report.service.HeadService;
+import com.rimi.report.util.Keys;
 
 
 @Service
@@ -35,9 +37,18 @@ public class HeadServiceImpl implements HeadService {
 	}
 
 	@Override
-	public Head login(String name, String password, HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean login(HttpServletRequest request) {
+		String name = request.getParameter("username");
+		String password = request.getParameter("password");
+		
+		if(headMapper.getByName(name) !=null) {
+			Head head =headMapper.getByNameandPwd(name,password);
+			if(head.getHead_name().equals(name) && head.getHead_password().equals(password)) {
+				return true;
+			}
+			
+		}
+		return false;
 	}
 
 	@Override

@@ -23,7 +23,7 @@
     <select id="total" resultType="int">
 		select count(*) from teacher
 	</select>
-    <select id="getByNameandPwd" parameterType="string" resultType="teacher">
+    <select id="getByNameandPwd"  resultType="teacher">
 		select * from teacher where teacher_name= #{teacher_name} and teacher_password=#{teacher_password}
 	</select>
     <select id="getByName" parameterType="string" resultType="teacher">

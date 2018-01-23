@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.rimi.report.entity.Admin;
 import com.rimi.report.entity.Teacher;
 import com.rimi.report.mapper.TeacherMapper;
 import com.rimi.report.service.TeacherService;
@@ -34,9 +35,18 @@ public class TeacherServiceImpl implements TeacherService{
 	}
 
 	@Override
-	public Teacher login(String name, String password, HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean login(HttpServletRequest request) {
+		String name = request.getParameter("username");
+		String password = request.getParameter("password");
+		
+		if(teacherMapper.getByName(name) !=null) {
+			Teacher teacher =teacherMapper.getByNameandPwd(name,password);
+			if(teacher.getTeacher_name().equals(name) && teacher.getTeacher_password().equals(password)) {
+				return true;
+			}
+			
+		}
+		return false;
 	}
 
 	@Override

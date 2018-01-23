@@ -49,8 +49,7 @@ public class Teacher {
 	@Override
 	public String toString() {
 		return "Teacher [id=" + id + ", teacher_name=" + teacher_name + ", teacher_password=" + teacher_password
-				+ ", part=" + part + ", classes=" + classes + ", teacher_tel=" + teacher_tel + ", toString()="
-				+ super.toString() + "]";
+				+ ", part=" + part + ", classes=" + classes + ", teacher_tel=" + teacher_tel +"]";
 	}
 	
 	

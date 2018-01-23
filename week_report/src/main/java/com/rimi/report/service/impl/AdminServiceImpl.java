@@ -8,12 +8,13 @@ import org.springframework.stereotype.Service;
 import com.rimi.report.entity.Admin;
 import com.rimi.report.mapper.AdminMapper;
 import com.rimi.report.service.AdminService;
+import com.rimi.report.util.Keys;
 
 
 @Service
 public class AdminServiceImpl implements AdminService {
 	
-	@Autowired 
+	@Autowired
 	AdminMapper adminMapper;
 	
 
@@ -36,9 +37,18 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	@Override
-	public Admin login(String name, String password, HttpServletRequest request) {
+	public boolean login(HttpServletRequest request) {
+		String name = request.getParameter("username");
+		String password = request.getParameter("password");
 		
-		return null;
+		if(adminMapper.getByName(name) !=null) {
+			Admin admin =adminMapper.getByNameandPwd(name,password);
+			if(admin.getAdmin_name().equals(name) && admin.getAdmin_password().equals(password)) {
+				return true;
+			}
+			
+		}
+		return false;
 	}
 
 	@Override

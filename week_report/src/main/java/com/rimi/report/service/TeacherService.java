@@ -21,7 +21,7 @@ public interface TeacherService {
 	/**
 	 * 教师登录
 	 */
-	Teacher login(String name,String password,HttpServletRequest request);
+	boolean login(HttpServletRequest request);
 	
 	/**
 	 * 教师注册

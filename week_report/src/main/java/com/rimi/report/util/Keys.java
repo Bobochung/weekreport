@@ -11,6 +11,7 @@ public class Keys {
 	public static final String TEACHER = "teacher";
 	
 	public static final String LoginType = "type";
+	public static final String ONLINEUSER = "user";
 	
 	
 	/**

@@ -52,7 +52,7 @@ public class Content {
 	@Override
 	public String toString() {
 		return "Content [id=" + id + ", content=" + content + ", type=" + type + ", time=" + time + ", part=" + part
-				+ ", classes=" + classes + ", toString()=" + super.toString() + "]";
+				+ ", classes=" + classes + "]";
 	}
 	
 	

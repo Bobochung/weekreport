@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.rimi.report.entity.Admin;
 
@@ -59,7 +60,7 @@ public interface AdminMapper {
 	 * @param password
 	 * @return
 	 */
-	public Admin getByNameandPwd(String name,String password);
+	public Admin getByNameandPwd(@Param("admin_name")String admin_name,@Param("admin_password")String admin_password);
 	/**
 	 * 根据用户名查询用户唯一性。
 	 * @param name

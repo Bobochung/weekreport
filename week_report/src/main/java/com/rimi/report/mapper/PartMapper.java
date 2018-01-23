@@ -43,7 +43,7 @@ public interface PartMapper {
 	 * @return 返回包含对象的list
 	 */
 	
-	public List<Part> list(Map<String, String> map);
+	public List<Part> list(Map<String, Object> map);
 	
 	/**
 	 * 查询总数

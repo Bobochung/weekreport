@@ -4,7 +4,10 @@ import java.util.List;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.rimi.report.entity.Head;
 import com.rimi.report.entity.Teacher;
@@ -60,7 +63,7 @@ public interface TeacherMapper {
 	 * @param password
 	 * @return
 	 */
-	public Teacher getByNameandPwd(String name,String password);
+	public Teacher getByNameandPwd(@Param("teacher_name")String teacher_name,@Param("teacher_password")String teacher_password);
 	
 	/**
 	 * 根据用户名查询用户唯一性。

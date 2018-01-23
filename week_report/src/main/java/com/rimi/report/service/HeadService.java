@@ -20,7 +20,7 @@ public interface HeadService {
 	/**
 	 * 主管登录
 	 */
-	Head login(String name,String password,HttpServletRequest request);
+	boolean login(HttpServletRequest request);
 	
 	/**
 	 * 主管注册
