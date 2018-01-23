@@ -4,9 +4,8 @@ public class Head {
 	private int id;
 	private String head_name;
 	private String head_password;
-	private int part_id;
 	private String head_tel;
-	
+	private Part part;
 	
 	public int getId() {
 		return id;
@@ -28,18 +27,24 @@ public class Head {
 		this.head_password = head_password;
 	}
 	
-	public int getPart_id() {
-		return part_id;
-	}
-	public void setPart_id(int part_id) {
-		this.part_id = part_id;
-	}
 	public String getHead_tel() {
 		return head_tel;
 	}
 	public void setHead_tel(String head_tel) {
 		this.head_tel = head_tel;
 	}
+	public Part getPart() {
+		return part;
+	}
+	public void setPart(Part part) {
+		this.part = part;
+	}
+	@Override
+	public String toString() {
+		return "Head [id=" + id + ", head_name=" + head_name + ", head_password=" + head_password + ", part=" + part
+				+ ", head_tel=" + head_tel + "]";
+	}
+	
 	
 
 }

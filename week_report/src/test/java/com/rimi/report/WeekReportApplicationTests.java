@@ -1,7 +1,9 @@
 
 package com.rimi.report;
 
-import java.util.List;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.rimi.report.entity.Admin;
-import com.rimi.report.mapper.AdminMapper;
+import com.rimi.report.entity.Head;
+import com.rimi.report.mapper.HeadMapper;
 
 
 
@@ -20,17 +22,16 @@ public class WeekReportApplicationTests {
 	
 	
 	@Autowired
-	 AdminMapper adminMapper;
+	 HeadMapper headMapper;
 	
 	@Test
-	public void contextLoads() {		
-	for (Admin admin :adminMapper.list() ) {
-		System.err.println(admin.toString());
+	public void contextLoads() {	
+		Map<String,Object> params = new HashMap<>();
+        params.put("name","张");
+	for (Head head :headMapper.list(params) ) {
+		System.err.println(head.toString()+"对应的部门"+head.getPart().getPart_name());
 	}	
-		
-		
-		
-		adminMapper.list();
+
 	}
 
 }

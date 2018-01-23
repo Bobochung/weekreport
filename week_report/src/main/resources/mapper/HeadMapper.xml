@@ -17,8 +17,17 @@
 	<update id="update" parameterType="head">
 		update head set head_name=#{head_name},head_password=#{head_password},head_tel=#{head_tel} where id=#{id}
 	</update>
-	<select id="list" resultType="head">
-		select * from head
+	<select id="list" resultMap="Headbean">
+		select p.*,h.*,p.id 'pid',h.id 'hid' from part p left join head h 
+		on p.id = h.part_id
+		<where>
+            <if test="name!=null">
+                and head_name like concat('%',#{name},'%')
+            </if>        
+            <!-- <if test="price!=null and price!=0">
+                and price > #{price}
+            </if> -->
+        </where> 
 	</select>
     <select id="total" resultType="int">
 		select count(*) from head
@@ -29,8 +38,19 @@
     <select id="getByName" parameterType="string" resultType="head">
 		select * from head where head_name= #{head_name}
 	</select>
-
-
-
+	
+	
+	<!-- 多对一关系 -->
+	<resultMap type="Head" id="Headbean">
+	<!-- column="id"表示数据库列名，property="id"表示实体对象属性 -->
+		<id column="hid" property="id"/>
+		<result column="head_name" property="head_name"/>
+		<result column="head_password" property="head_password"/>
+		<result column="head_tel" property="head_tel"/>
+		<association property="part" javaType="Part">
+			<id column="pid" property="id"/>
+			<result column="part_name" property="part_name"/>		
+		</association>	
+	</resultMap>
 
 </mapper>

@@ -7,8 +7,8 @@ public class Content {
 	private String content;
 	private String type;
 	private Date time;
-	private int part_id;
-	private int classes_id;
+	private Part part;
+	private Classes classes;
 	
 	
 	
@@ -37,19 +37,23 @@ public class Content {
 	public void setTime(Date time) {
 		this.time = time;
 	}
-	public int getPart_id() {
-		return part_id;
+	public Part getPart() {
+		return part;
 	}
-	public void setPart_id(int part_id) {
-		this.part_id = part_id;
+	public void setPart(Part part) {
+		this.part = part;
 	}
-	public int getClasses_id() {
-		return classes_id;
+	public Classes getClasses() {
+		return classes;
 	}
-	public void setClasses_id(int classes_id) {
-		this.classes_id = classes_id;
+	public void setClasses(Classes classes) {
+		this.classes = classes;
 	}
-	
+	@Override
+	public String toString() {
+		return "Content [id=" + id + ", content=" + content + ", type=" + type + ", time=" + time + ", part=" + part
+				+ ", classes=" + classes + ", toString()=" + super.toString() + "]";
+	}
 	
 	
 

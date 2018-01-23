@@ -4,11 +4,9 @@ public class Teacher {
 	private int id;
 	private String teacher_name;
 	private String teacher_password;
-	private int part_id;
-	private int classes_id;
+	private Part part;
+	private Classes classes;
 	private String teacher_tel;
-	
-	
 	
 	public int getId() {
 		return id;
@@ -29,24 +27,32 @@ public class Teacher {
 	public void setTeacher_password(String teacher_password) {
 		this.teacher_password = teacher_password;
 	}
-	public int getPart_id() {
-		return part_id;
-	}
-	public void setPart_id(int part_id) {
-		this.part_id = part_id;
-	}
-	public int getClasses_id() {
-		return classes_id;
-	}
-	public void setClasses_id(int classes_id) {
-		this.classes_id = classes_id;
-	}
+
 	public String getTeacher_tel() {
 		return teacher_tel;
 	}
 	public void setTeacher_tel(String teacher_tel) {
 		this.teacher_tel = teacher_tel;
 	}
+	public Part getPart() {
+		return part;
+	}
+	public void setPart(Part part) {
+		this.part = part;
+	}
+	public Classes getClasses() {
+		return classes;
+	}
+	public void setClasses(Classes classes) {
+		this.classes = classes;
+	}
+	@Override
+	public String toString() {
+		return "Teacher [id=" + id + ", teacher_name=" + teacher_name + ", teacher_password=" + teacher_password
+				+ ", part=" + part + ", classes=" + classes + ", teacher_tel=" + teacher_tel + ", toString()="
+				+ super.toString() + "]";
+	}
+	
 	
 	
 

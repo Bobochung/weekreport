@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.rimi.report.entity.Admin;
 import com.rimi.report.entity.Head;
 
 @Mapper
@@ -45,7 +44,7 @@ public interface HeadMapper {
 	 * @return 返回包含对象的list
 	 */
 	
-	public List<Head> list(Map<String, String> map);
+	public List<Head> list(Map<String, Object> map);
 	
 	/**
 	 * 查询总数
