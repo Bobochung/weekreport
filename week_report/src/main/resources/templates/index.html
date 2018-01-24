@@ -23,14 +23,10 @@
     
     <div class="welinfo">
     <span><img src="images/sun.png" alt="天气" /></span>
-    <b>Admin早上好，欢迎使用信息管理系统</b>
+    <b><a th:text="${session.user}"></a>欢迎使用周报系统</b>
     <a href="#">帐号设置</a>
     </div>
-    
-    <div class="welinfo">
-    <span><img src="images/time.png" alt="时间" /></span>
-    <i>您上次登录的时间：2013-10-09 15:22</i> （不是您登录的？<a href="#">请点这里</a>）
-    </div>
+   
     
     <div class="xline"></div>
     
@@ -47,22 +43,14 @@
     
     <div class="ibox"><a class="ibtn"><img src="images/iadd.png" />添加新的快捷功能</a></div>
     
-    <div class="xline"></div>
-    <div class="box"></div>
-    
-    <div class="welinfo">
-    <span><img src="images/dp.png" alt="提醒" /></span>
-    <b>信息管理系统使用指南</b>
-    </div>
-    
-    <ul class="infolist">
-    <li><span>您可以快速进行文章发布管理操作</span><a class="ibtn">发布或管理文章</a></li>
-    <li><span>您可以快速发布产品</span><a class="ibtn">发布或管理产品</a></li>
-    <li><span>您可以进行密码修改、账户设置等操作</span><a class="ibtn">账户管理</a></li>
-    </ul>
-    
-  
-    
+
+    <span th:text="${session.size()}">123</span>
+    <table>
+    <tr th:each="attr : ${session.keySet()}">
+            <td th:text="${attr}">javax.servlet.context.tempdir</td>
+            <td th:text="${session.get(attr)}">/tmp</td>
+        </tr>
+    </table>
     </div>
 </body>
 </html>

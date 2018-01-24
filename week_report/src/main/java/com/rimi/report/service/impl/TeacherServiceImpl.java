@@ -9,6 +9,7 @@ import com.rimi.report.entity.Admin;
 import com.rimi.report.entity.Teacher;
 import com.rimi.report.mapper.TeacherMapper;
 import com.rimi.report.service.TeacherService;
+import com.rimi.report.util.Keys;
 
 @Service
 public class TeacherServiceImpl implements TeacherService{
@@ -42,6 +43,9 @@ public class TeacherServiceImpl implements TeacherService{
 		if(teacherMapper.getByName(name) !=null) {
 			Teacher teacher =teacherMapper.getByNameandPwd(name,password);
 			if(teacher.getTeacher_name().equals(name) && teacher.getTeacher_password().equals(password)) {
+				request.getSession().setAttribute(Keys.TEACHER, teacher);
+				request.getSession().setAttribute(Keys.LoginType, Keys.TEACHER);
+				request.getSession().setAttribute(Keys.ONLINEUSER, name);
 				return true;
 			}
 			

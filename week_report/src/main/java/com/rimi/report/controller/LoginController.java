@@ -1,12 +1,18 @@
 package com.rimi.report.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 
 import com.rimi.report.service.AdminService;
 import com.rimi.report.service.HeadService;
@@ -24,23 +30,17 @@ public class LoginController {
 	HeadService hs;
 	@Autowired
 	TeacherService ts;
-	@RequestMapping(value="login")
+	@RequestMapping("login")
 	public String login() {
 		return "login";
 	}
 	
 	@RequestMapping(value="main")
-	public String index(HttpServletRequest request,ModelMap map) {
+	public String index(HttpServletRequest request) {
 		String type = request.getParameter("type");
-		String name = request.getParameter("username");
 		switch (type) {
 		case "admin":			
-			if(as.login(request)) {
-				
-				map.addAttribute(Keys.ADMIN,as.getByName(name));
-				map.addAttribute(Keys.LoginType, type);
-				map.addAttribute(Keys.ONLINEUSER, as.getByName(name));
-							
+			if(as.login(request)) {								
 				return "main";
 			}
 			else {
@@ -50,10 +50,6 @@ public class LoginController {
 			
 			if(hs.login(request)) {
 				
-				map.addAttribute(Keys.HEAD,hs.getByName(name));
-				map.addAttribute(Keys.LoginType, type);
-				map.addAttribute(Keys.ONLINEUSER, hs.getByName(name));
-				
 				return "main";
 			}
 			else {
@@ -62,10 +58,6 @@ public class LoginController {
 		case "teacher":
 		
 			if(ts.login(request)) {
-				
-				map.addAttribute(Keys.TEACHER,ts.getByName(name));
-				map.addAttribute(Keys.LoginType, type);
-				map.addAttribute(Keys.ONLINEUSER, ts.getByName(name));
 				
 				return "main";
 			}
@@ -78,5 +70,12 @@ public class LoginController {
 		
 		
 	}
+	
+	@RequestMapping("index")
+	public String index() {
+		return "index";
+	}
+	
+	
 
 }

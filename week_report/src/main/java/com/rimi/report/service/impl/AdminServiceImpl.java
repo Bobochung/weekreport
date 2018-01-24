@@ -44,6 +44,9 @@ public class AdminServiceImpl implements AdminService {
 		if(adminMapper.getByName(name) !=null) {
 			Admin admin =adminMapper.getByNameandPwd(name,password);
 			if(admin.getAdmin_name().equals(name) && admin.getAdmin_password().equals(password)) {
+				request.getSession().setAttribute(Keys.ADMIN, admin);
+				request.getSession().setAttribute(Keys.LoginType, Keys.ADMIN);
+				request.getSession().setAttribute(Keys.ONLINEUSER, name);
 				return true;
 			}
 			

@@ -44,6 +44,9 @@ public class HeadServiceImpl implements HeadService {
 		if(headMapper.getByName(name) !=null) {
 			Head head =headMapper.getByNameandPwd(name,password);
 			if(head.getHead_name().equals(name) && head.getHead_password().equals(password)) {
+				request.getSession().setAttribute(Keys.HEAD, head);
+				request.getSession().setAttribute(Keys.LoginType, Keys.HEAD);
+				request.getSession().setAttribute(Keys.ONLINEUSER, name);
 				return true;
 			}
 			
