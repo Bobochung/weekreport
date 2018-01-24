@@ -1,6 +1,7 @@
 package com.rimi.report.service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.rimi.report.entity.Admin;
 
@@ -25,7 +26,7 @@ public interface AdminService {
 	/**
 	 * 管理员注册
 	 */
-	boolean register(String name,String password,HttpServletRequest request);
+	boolean register(HttpServletRequest request);
 	/**
 	 * 获得管理员总数
 	 */

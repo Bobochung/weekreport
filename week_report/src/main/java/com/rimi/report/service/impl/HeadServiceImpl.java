@@ -1,11 +1,8 @@
 package com.rimi.report.service.impl;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.rimi.report.entity.Admin;
 import com.rimi.report.entity.Head;
 import com.rimi.report.mapper.HeadMapper;
 import com.rimi.report.service.HeadService;
@@ -55,9 +52,22 @@ public class HeadServiceImpl implements HeadService {
 	}
 
 	@Override
-	public boolean register(String name, String password, HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean register(HttpServletRequest request) {
+		
+		String username=request.getParameter("username");
+		String password=request.getParameter("password");
+		
+		if(headMapper.getByName(username) !=null) {
+		   return false;
+		   
+		}else {
+			Head head = new Head();
+			head.setHead_name(username);
+			head.setHead_password(password);
+			
+			headMapper.add(head);
+			return true;
+		}						
 	}
 
 	@Override

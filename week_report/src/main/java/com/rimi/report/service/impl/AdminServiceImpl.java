@@ -1,6 +1,10 @@
 package com.rimi.report.service.impl;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,9 +59,23 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public boolean register(String name, String password, HttpServletRequest request) {
+	public boolean register(HttpServletRequest request) {
+				
+		String username=request.getParameter("username");
+		String password=request.getParameter("password");
 		
-		return false;
+		if(adminMapper.getByName(username) !=null) {
+		   return false;
+		   
+		}else {
+			Admin admin2 = new Admin();
+			admin2.setAdmin_name(username);
+			admin2.setAdmin_password(password);
+			
+			adminMapper.add(admin2);
+			return true;
+		}								
+	
 	}
 
 	@Override
