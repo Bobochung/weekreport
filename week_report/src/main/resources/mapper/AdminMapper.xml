@@ -7,15 +7,15 @@
 	</insert>
 
 	<delete id="delete" parameterType="Admin">
-		delete from admin_ where id= #{id}
+		delete from admin_ where id= #{aid}
 	</delete>
 
 	<select id="get" parameterType="int" resultType="Admin">
-		select * from admin_ where id= #{id}
+		select * from admin_ where id= #{aid}
 	</select>
 
 	<update id="update" parameterType="Admin">
-		update admin_ set admin_name=#{admin_name},admin_password=#{admin_password},admin_tel=#{admin_tel} where id=#{id}
+		update admin_ set admin_name=#{admin_name},admin_password=#{admin_password},admin_tel=#{admin_tel} where id=#{aid}
 	</update>
 	<select id="list" resultType="Admin">
 		select * from admin_
