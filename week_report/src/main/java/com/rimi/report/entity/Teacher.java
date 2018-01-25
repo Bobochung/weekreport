@@ -1,20 +1,19 @@
 package com.rimi.report.entity;
 
 public class Teacher {
-	private int id;
+	private int tid;
 	private String teacher_name;
 	private String teacher_password;
 	private Part part;
 	private Classes classes;
-	private String teacher_tel;
+	private String teacher_tel;	
 	
-	public int getId() {
-		return id;
+	public int getTid() {
+		return tid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setTid(int tid) {
+		this.tid = tid;
 	}
-	
 	public String getTeacher_name() {
 		return teacher_name;
 	}
@@ -48,7 +47,7 @@ public class Teacher {
 	}
 	@Override
 	public String toString() {
-		return "Teacher [id=" + id + ", teacher_name=" + teacher_name + ", teacher_password=" + teacher_password
+		return "Teacher [id=" + tid + ", teacher_name=" + teacher_name + ", teacher_password=" + teacher_password
 				+ ", part=" + part + ", classes=" + classes + ", teacher_tel=" + teacher_tel +"]";
 	}
 	

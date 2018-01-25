@@ -2,15 +2,15 @@ package com.rimi.report.entity;
 
 public class Part {
 	
-	private int id;
+	private int pid;
 	private String part_name;
 	
-	
-	public int getId() {
-		return id;
+
+	public int getPid() {
+		return pid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setPid(int pid) {
+		this.pid = pid;
 	}
 	public String getPart_name() {
 		return part_name;
@@ -21,7 +21,7 @@ public class Part {
 	
 	@Override
 	public String toString() {
-		return "Part [id=" + id + ", part_name=" + part_name + "]";
+		return "Part [id=" + pid + ", part_name=" + part_name + "]";
 	}
 	
 

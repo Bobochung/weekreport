@@ -1,19 +1,19 @@
 package com.rimi.report.entity;
 
 public class Head {
-	private int id;
+	private int hid;
 	private String head_name;
 	private String head_password;
 	private String head_tel;
 	private Part part;
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	
+	public int getHid() {
+		return hid;
+	}
+	public void setHid(int hid) {
+		this.hid = hid;
+	}
 	public String getHead_name() {
 		return head_name;
 	}
@@ -41,7 +41,7 @@ public class Head {
 	}
 	@Override
 	public String toString() {
-		return "Head [id=" + id + ", head_name=" + head_name + ", head_password=" + head_password + ", part=" + part
+		return "Head [id=" + hid + ", head_name=" + head_name + ", head_password=" + head_password + ", part=" + part
 				+ ", head_tel=" + head_tel + "]";
 	}
 	

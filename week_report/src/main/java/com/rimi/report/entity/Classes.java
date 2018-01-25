@@ -2,15 +2,15 @@ package com.rimi.report.entity;
 
 public class Classes {
 	
-	private int id;
+	private int classes_id;
 	private String classes;
 	
-	
-	public int getId() {
-		return id;
+
+	public int getClasses_id() {
+		return classes_id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setClasses_id(int classes_id) {
+		this.classes_id = classes_id;
 	}
 	public String getClasses() {
 		return classes;
@@ -21,7 +21,7 @@ public class Classes {
 	
 	@Override
 	public String toString() {
-		return "Classes [id=" + id + ", classes=" + classes + "]";
+		return "Classes [id=" + classes_id + ", classes=" + classes + "]";
 	}
 	
 	

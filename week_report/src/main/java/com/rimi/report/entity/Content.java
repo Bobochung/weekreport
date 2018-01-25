@@ -3,22 +3,19 @@ package com.rimi.report.entity;
 import java.util.Date;
 
 public class Content {
-	private int id;
+	private int cid;
 	private String content;
 	private String type;
 	private Date date;
 	private Part part;
-	private Classes classes;
+	private Classes classes;		
 	
-	
-	
-	public int getId() {
-		return id;
+	public int getCid() {
+		return cid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setCid(int cid) {
+		this.cid = cid;
 	}
-	
 	public String getContent() {
 		return content;
 	}
@@ -52,7 +49,7 @@ public class Content {
 	}
 	@Override
 	public String toString() {
-		return "Content [id=" + id + ", content=" + content + ", type=" + type + ", date=" + date + ", part=" + part
+		return "Content [id=" + cid + ", content=" + content + ", type=" + type + ", date=" + date + ", part=" + part
 				+ ", classes=" + classes + "]";
 	}
 	

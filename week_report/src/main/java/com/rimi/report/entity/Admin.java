@@ -1,15 +1,16 @@
 package com.rimi.report.entity;
 
 public class Admin {
-	private int id;
+	private int aid;
 	private String admin_name;
 	private String admin_password;
 	private String admin_tel;
-	public int getId() {
-		return id;
+	
+	public int getAid() {
+		return aid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setAid(int aid) {
+		this.aid = aid;
 	}
 	public String getAdmin_name() {
 		return admin_name;
@@ -34,7 +35,7 @@ public class Admin {
 	 */
 	@Override
 	public String toString() {
-		return "Admin [id=" + id + ", admin_name=" + admin_name + ", admin_password=" + admin_password + ", admin_tel="
+		return "Admin [id=" + aid + ", admin_name=" + admin_name + ", admin_password=" + admin_password + ", admin_tel="
 				+ admin_tel + "]";
 	}
 	
