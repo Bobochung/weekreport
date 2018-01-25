@@ -7,7 +7,7 @@
 	</insert>
 
 	<delete id="delete" parameterType="Content">
-		delete from content where id= #{id}
+		delete from content where cid= #{cid}
 	</delete>
 
 	<select id="list" resultMap="ContentBean">

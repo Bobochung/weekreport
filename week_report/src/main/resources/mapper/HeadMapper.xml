@@ -7,15 +7,15 @@
 	</insert>
 
 	<delete id="delete" parameterType="head">
-		delete from head where id= #{hid}
+		delete from head where hid= #{hid}
 	</delete>
 
 	<select id="get" parameterType="int" resultType="head">
-		select * from head where id= #{hid}
+		select * from head where hid= #{hid}
 	</select>
 
 	<update id="update" parameterType="head">
-		update head set head_name=#{head_name},head_password=#{head_password},head_tel=#{head_tel} where id=#{hid}
+		update head set head_name=#{head_name},head_password=#{head_password},head_tel=#{head_tel} where hid=#{hid}
 	</update>
 	<select id="list" resultMap="Headbean">
 		select p.*,h.*,p.id 'pid',h.id 'hid' from part p left join head h 
