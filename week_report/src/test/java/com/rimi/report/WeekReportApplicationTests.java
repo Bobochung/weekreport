@@ -3,13 +3,18 @@ package com.rimi.report;
 
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.rimi.report.entity.Content;
 import com.rimi.report.mapper.AdminMapper;
+import com.rimi.report.mapper.ContentMapper;
 import com.rimi.report.service.AdminService;
 import com.rimi.report.service.impl.AdminServiceImpl;
 
@@ -20,12 +25,18 @@ import com.rimi.report.service.impl.AdminServiceImpl;
 @SpringBootTest
 public class WeekReportApplicationTests {
 	@Autowired
-	AdminService as ;
+	ContentMapper cm;
 	
 	@Test
 	public void contextLoads() {	
+		System.out.println(cm.total());
+		Map<String, Object> map = new HashMap<>();
+		//map.put("type", "");
+		map.put("id", 2);
 		System.out.println("******head*****");
-		System.out.println(as.getByName("admin").toString());
+		for(Content content : cm.list(map)) {
+			System.out.println(content.toString());
+		}
 		System.out.println("******footer*****");
 	}
 

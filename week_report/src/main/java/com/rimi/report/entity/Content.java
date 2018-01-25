@@ -6,7 +6,7 @@ public class Content {
 	private int id;
 	private String content;
 	private String type;
-	private Date time;
+	private Date date;
 	private Part part;
 	private Classes classes;
 	
@@ -31,11 +31,12 @@ public class Content {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Date getTime() {
-		return time;
+
+	public Date getDate() {
+		return date;
 	}
-	public void setTime(Date time) {
-		this.time = time;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	public Part getPart() {
 		return part;
@@ -51,7 +52,7 @@ public class Content {
 	}
 	@Override
 	public String toString() {
-		return "Content [id=" + id + ", content=" + content + ", type=" + type + ", time=" + time + ", part=" + part
+		return "Content [id=" + id + ", content=" + content + ", type=" + type + ", date=" + date + ", part=" + part
 				+ ", classes=" + classes + "]";
 	}
 	

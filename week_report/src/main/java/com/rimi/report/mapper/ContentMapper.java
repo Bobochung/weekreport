@@ -28,7 +28,7 @@ public interface ContentMapper {
 	 * @return 返回一个内容对象
 	 */
 	
-	public Content get(int id);
+	//public Content get(int id);
 	
 	/**
 	 * 更新内容
@@ -36,7 +36,7 @@ public interface ContentMapper {
 	 * @return 返回1更新成功
 	 */
 	
-	public int update(Content content);
+	//public int update(Content content);
 	
 	/**
 	 * 查询内容列表
@@ -44,7 +44,7 @@ public interface ContentMapper {
 	 * @return 返回包含对象的list
 	 */
 	
-	public List<Content> list(Map<String, String> map);
+	public List<Content> list(Map<String, Object> map);
 	
 	/**
 	 * 查询总数
