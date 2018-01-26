@@ -49,7 +49,7 @@ public class Content {
 	}
 	@Override
 	public String toString() {
-		return "Content [id=" + cid + ", content=" + content + ", type=" + type + ", date=" + date + ", part=" + part
+		return "Content [cid=" + cid + ", content=" + content + ", type=" + type + ", date=" + date + ", part=" + part
 				+ ", classes=" + classes + "]";
 	}
 	

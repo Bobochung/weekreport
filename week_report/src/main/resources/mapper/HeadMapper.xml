@@ -18,8 +18,8 @@
 		update head set head_name=#{head_name},head_password=#{head_password},head_tel=#{head_tel} where hid=#{hid}
 	</update>
 	<select id="list" resultMap="Headbean">
-		select p.*,h.*,p.id 'pid',h.id 'hid' from part p left join head h 
-		on p.id = h.part_id
+		select p.*,h.*  from part p left join head h 
+		on p.pid = h.part_id
 		<where>
             <if test="name!=null">
                 and head_name like concat('%',#{name},'%')
@@ -43,12 +43,12 @@
 	<!-- 多对一关系 -->
 	<resultMap type="Head" id="Headbean">
 	<!-- column="id"表示数据库列名，property="id"表示实体对象属性 -->
-		<id column="hid" property="id"/>
+		<id column="hid" property="hid"/>
 		<result column="head_name" property="head_name"/>
 		<result column="head_password" property="head_password"/>
 		<result column="head_tel" property="head_tel"/>
 		<association property="part" javaType="Part">
-			<id column="pid" property="id"/>
+			<id column="pid" property="pid"/>
 			<result column="part_name" property="part_name"/>		
 		</association>	
 	</resultMap>

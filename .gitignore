@@ -1,2 +1,3 @@
 
 week_report/src/test/java/com/rimi/report/WeekReportApplicationTests.java
+week_report/src/main/resources/mapper/HeadMapper.xml

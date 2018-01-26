@@ -14,7 +14,7 @@
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
+    <li><a href="#" th:href="@{/index}">首页</a></li>
     </ul>
     </div>
     
@@ -30,20 +30,16 @@
     
     <div class="xline"></div>
     
-    <ul class="iconlist">
+    <ul class="iconlist" th:switch="${session.type}">
     
-    <li><img src="images/ico01.png" /><p><a href="#">管理设置</a></p></li>
-    <li><img src="images/ico02.png" /><p><a href="#">发布文章</a></p></li>
-    <li><img src="images/ico03.png" /><p><a href="#">数据统计</a></p></li>
-    <li><img src="images/ico04.png" /><p><a href="#">文件上传</a></p></li>
-    <li><img src="images/ico05.png" /><p><a href="#">目录管理</a></p></li>
-    <li><img src="images/ico06.png" /><p><a href="#">查询</a></p></li> 
+    
+    <li th:case="head"><img src="images/ico01.png" /><p><a href="#" th:href="@{/head}">主管管理</a></p></li>
+    <li th:case="teacher"><img src="images/ico02.png" /><p><a href="#" th:href="@{/teacher}">教师管理</a></p></li>
+    <li th:case="admin"><img src="images/ico03.png" /><p><a href="#" th:href="@{/admin}">管理员管理</a></p></li>
+    
             
     </ul>
-    
-    <div class="ibox"><a class="ibtn"><img src="images/iadd.png" />添加新的快捷功能</a></div>
-    
-
+   
     <span th:text="${session.size()}">123</span>
     <table>
     <tr th:each="attr : ${session.keySet()}">

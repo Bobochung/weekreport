@@ -11,7 +11,7 @@
 	</delete>
 
 	<select id="list" resultMap="ContentBean">
-		select c.*
+		select c.*,p.*,cla.*
 		from content c 
 		left join part p on c.part_id = p.pid
 		left join classes cla on c.classes_id = cla.classes_id
@@ -30,16 +30,16 @@
 	<!-- 多对一关系 -->
 	<resultMap type="Content" id="ContentBean">
 	<!-- column="id"表示数据库列名，property="id"表示实体对象属性 -->
-		<id column="cid" property="id"/>
+		<id column="cid" property="cid"/>
 		<result column="content" property="content"/>
 		<result column="type" property="type"/>
 		<result column="date" property="date"/>
 		<association property="part" javaType="Part">
-			<id column="pid" property="id"/>
+			<id column="pid" property="pid"/>
 			<result column="part_name" property="part_name"/>		
 		</association>
 		<association property="classes" javaType="Classes">
-			<id column="classes_id" property="id"/>
+			<id column="classes_id" property="classes_id"/>
 			<result column="classes" property="classes"/>		
 		</association>		
 	</resultMap>
