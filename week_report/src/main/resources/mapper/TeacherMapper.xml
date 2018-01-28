@@ -17,8 +17,10 @@
 	<update id="update" parameterType="teacher">
 		update teacher set teacher_name=#{teacher_name},teacher_password=#{teacher_password},teacher_tel=#{teacher_tel} where tid=#{tid}
 	</update>
-	<select id="list" resultType="teacher">
-		select * from teacher
+	<select id="list" resultMap="TeacherBean">
+		select t.*,p.*,cla.*  from teacher t
+		left join part p on t.part_id = p.pid
+		left join classes cla on t.classes_id = cla.classes_id
 	</select>
     <select id="total" resultType="int">
 		select count(*) from teacher
@@ -29,6 +31,22 @@
     <select id="getByName" parameterType="string" resultType="teacher">
 		select * from teacher where teacher_name= #{teacher_name}
 	</select>
+	
+	<resultMap type="Teacher" id="TeacherBean">
+		<id column="tid" property="tid"/>
+		<result column="teacher_name" property="teacher_name"/>
+		<result column="teacher_password" property="teacher_password"/>
+		<result column="teacher_tel" property="teacher_tel"/>
+		<association property="part" javaType="Part">
+			<id column="pid" property="pid"/>
+			<result column="part_name" property="part_name"/>		
+		</association>
+		<association property="classes" javaType="Classes">
+			<id column="classes_id" property="classes_id"/>
+			<result column="classes" property="classes"/>		
+		</association>
+	
+	</resultMap>
 
 
 

@@ -1,7 +1,9 @@
 package com.rimi.report.service;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import com.rimi.report.entity.Head;
 
@@ -46,5 +48,10 @@ public interface HeadService {
 	 * @return 返回Head不为空，则该用户已经注册
 	 */
 	Head getByName(String name);
+	
+	/**
+	 * 得到主管列表
+	 */
+	List<Head> list(Map<String, Object> map);
 
 }

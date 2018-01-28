@@ -11,6 +11,7 @@ public class Keys {
 	public static final String TEACHER = "teacher";
 	
 	public static final String LoginType = "type";
+	public static final String LOGINNAME = "name";
 	public static final String ONLINEUSER = "user";
 	
 	
@@ -37,6 +38,7 @@ public class Keys {
 	 */
 	public static final String NEXTCONTENTPRO_LIST = "nextcontentprolist";
 	
+	public static final String CONTENT_LIST = "contentlist";
 	
 	
 	/**
@@ -48,7 +50,7 @@ public class Keys {
 	/**
 	 * 单条数据
 	 */
-	
+	public static final String ADMINITEM = "adminitem";
 	
 	
 

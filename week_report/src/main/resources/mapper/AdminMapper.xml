@@ -5,7 +5,9 @@
     <insert id="add" parameterType="Admin">
 		insert into admin_ (admin_name,admin_password) values (#{admin_name},#{admin_password})
 	</insert>
-
+	<insert id="addAdmin" parameterType="Admin">
+		insert into admin_ (admin_name,admin_password,admin_tel) values (#{admin_name},#{admin_password},#{admin_tel})
+	</insert>
 	<delete id="delete" parameterType="Admin">
 		delete from admin_ where aid= #{aid}
 	</delete>

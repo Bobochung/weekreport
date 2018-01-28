@@ -1,7 +1,8 @@
 package com.rimi.report.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import com.rimi.report.entity.Admin;
 
@@ -10,6 +11,8 @@ public interface AdminService {
 	 * 添加管理员
 	 */
 	void add(Admin admin);
+	
+	void addAdmin(Admin admin);
 	/**
 	 * 删除管理员
 	 */
@@ -45,6 +48,8 @@ public interface AdminService {
 	 * @return 返回admin不为空，则该用户已经注册
 	 */
 	Admin getByName(String name);
+	
+	List<Admin> list(HttpServletRequest request);
 	
 
 }

@@ -23,8 +23,7 @@
     
     <div class="welinfo">
     <span><img src="images/sun.png" alt="天气" /></span>
-    <b><a th:text="${session.user}"></a>欢迎使用周报系统</b>
-    <a href="#">帐号设置</a>
+    <b><a th:text="${session.name}"></a>欢迎使用周报系统</b>
     </div>
    
     
@@ -33,9 +32,19 @@
     <ul class="iconlist" th:switch="${session.type}">
     
     
-    <li th:case="head"><img src="images/ico01.png" /><p><a href="#" th:href="@{/head}">主管管理</a></p></li>
-    <li th:case="teacher"><img src="images/ico02.png" /><p><a href="#" th:href="@{/teacher}">教师管理</a></p></li>
-    <li th:case="admin"><img src="images/ico03.png" /><p><a href="#" th:href="@{/admin}">管理员管理</a></p></li>
+    <li th:case="head">
+	<img src="images/ico02.png" /><p><a href="#" th:href="@{/teacher}">教师管理</a></p>
+	<img src="images/ico02.png" /><p><a href="#" th:href="@{/report}">周报管理</a></p>
+    </li>
+    <li th:case="teacher">
+    <img src="images/ico02.png" /><p><a href="#" th:href="@{/report}">周报管理</a></p>
+    </li>
+    <li th:case="admin">
+    <img src="images/ico03.png" /><p><a href="#" th:href="@{/admin}">管理员管理</a></p>
+    <img src="images/ico02.png" /><p><a href="#" th:href="@{/teacher}">教师管理</a></p>
+    <img src="images/ico01.png" /><p><a href="#" th:href="@{/head}">主管管理</a></p>
+    <img src="images/ico02.png" /><p><a href="#" th:href="@{/reportlist}">全部周报管理</a></p>
+    </li>
     
             
     </ul>
@@ -43,7 +52,7 @@
     <span th:text="${session.size()}">123</span>
     <table>
     <tr th:each="attr : ${session.keySet()}">
-            <td th:text="${attr}">javax.servlet.context.tempdir</td>
+            <td th:text="${attr}"></td>
             <td th:text="${session.get(attr)}">/tmp</td>
         </tr>
     </table>

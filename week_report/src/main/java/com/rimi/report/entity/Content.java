@@ -1,14 +1,15 @@
 package com.rimi.report.entity;
 
-import java.util.Date;
-
 public class Content {
 	private int cid;
 	private String content;
 	private String type;
-	private Date date;
+	private String date;
 	private Part part;
-	private Classes classes;		
+	private Classes classes;	
+	private Teacher teacher;
+	
+	//SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日");
 	
 	public int getCid() {
 		return cid;
@@ -29,10 +30,10 @@ public class Content {
 		this.type = type;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public Part getPart() {
@@ -47,12 +48,17 @@ public class Content {
 	public void setClasses(Classes classes) {
 		this.classes = classes;
 	}
+	public Teacher getTeacher() {
+		return teacher;
+	}
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
 	@Override
 	public String toString() {
 		return "Content [cid=" + cid + ", content=" + content + ", type=" + type + ", date=" + date + ", part=" + part
-				+ ", classes=" + classes + "]";
+				+ ", classes=" + classes + ", teacher=" + teacher + ", toString()=" + super.toString() + "]";
 	}
-	
 	
 
 }

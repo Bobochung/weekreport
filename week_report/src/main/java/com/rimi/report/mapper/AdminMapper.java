@@ -24,6 +24,8 @@ public interface AdminMapper {
 	 */
 	
 	public int add(Admin admin);
+	
+	public int addAdmin(Admin admin);
 	/**
 	 * 查询管理员 
 	 * @param ID

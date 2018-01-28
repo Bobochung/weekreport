@@ -23,30 +23,7 @@ $(document).ready(function(){
   $(".cancel").click(function(){
   $(".tip").fadeOut(100);
 });
-  
-  function mycheck(){
-	   if(isNull(form1.Tel.value)){  
-	   alert("请输入联系方式！"); 
-	   return false;
-	   }
-	   if(isNull(form1.Username.value)){  
-	   alert("请输入用户名！"); 
-	   return false;
-	   }
-	   if(isNull(form1.Password.value)){
-	   alert("请输入密码！");
-	   return false;
-	   }
-	      
-	}
-	function isNull(str){
-	if ( str == "" ) return true;
-	var regu = "^[ ]+$";
-	var re = new RegExp(regu);
-	return re.test(str);
-	}
 
-  
 
 });
 </script>
@@ -61,7 +38,7 @@ $(document).ready(function(){
     <span>位置：</span>
     <ul class="placeul">
     <li><a href="#" th:href="@{/index}">首页</a></li>
-    <li><a href="#" th:href="@{/admin}">管理员管理</a></li>
+    <li><a href="#" th:href="@{/reportlist}">全部周报</a></li>
     
     </ul>
     </div>
@@ -72,9 +49,15 @@ $(document).ready(function(){
     
     	<ul class="toolbar">
         <li class="click"><span><img src="images/t01.png" /></span>添加</li>
+        <li class="click"><span><img src="images/t02.png" /></span>修改</li>
+        <li><span><img src="images/t03.png" /></span>删除</li>
+        <li><span><img src="images/t04.png" /></span>统计</li>
         </ul>
         
         
+        <ul class="toolbar1">
+        <li><span><img src="images/t05.png" /></span>设置</li>
+        </ul>
     
     </div>
     
@@ -83,20 +66,29 @@ $(document).ready(function(){
     	<thead>
     	<tr>
         
-        <th>编号</th>
-        <th>用户名</th>
-        <th>密码</th>
+        <th>编号<i class="sort"><img src="images/px.gif" /></i></th>
+        <th>内容</th>
+        <th>类型</th>
+        <th>时间</th>
+        <th>所属部门</th>
+        <th>所属班级</th>
+        <th>所属教师</th>
         <th>联系电话</th>
         <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="admin:${session.adminlist}">
-        <td th:text="${admin.aid}"></td>
-        <td th:text="${admin.admin_name}">20130908</td>
-        <td th:text="${admin.admin_password}">>王金平幕僚：马英九声明字字见血 人活着没意思</td>
-        <td th:text="${admin.admin_tel}">admin</td>
-        <td><a href="#" th:href="|@{/update}?aid=${admin.aid}|" class="tablelink">查看</a>     <a href="#" th:href="|@{/deleteAdmin}?aid=${admin.aid}|" class="tablelink"> 删除</a></td>
+        <tr th:each="content:${session.contentlist}">
+        
+        <td th:text="${content.cid}">20130908</td>
+        <td th:text="${content.content}">王金平幕僚：马英九声明字字见血 人活着没意思</td>
+        <td th:text="${content.type}">admin</td>
+        <td th:text="${content.date}">江苏南京</td>
+        <td th:text="${content.part.part_name}">2013-09-09 15:05</td>
+        <td th:text="${content.classes.classes}">已审核</td>
+        <td th:text="${content.teacher.teacher_name}">已审核</td>
+        <td th:text="${content.teacher.teacher_tel}">已审核</td>
+        <td><a href="#" th:href="@{/report}" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
         </tr> 
                 
         </tbody>
@@ -120,23 +112,21 @@ $(document).ready(function(){
     
     
     <div class="tip">
-    	<div class="tiptop"><span>添加管理员</span><a></a></div>
-        <form method="post" action="addAdmin" name="form1" onSubmit="return mycheck();"> 
-        <div class="tipinfo">
-     
-        <div class="tipright">
+    	<div class="tiptop"><span>提示信息</span><a></a></div>
         
-        <cite>用户名:<input type="text" style="width: 280px;height: 35px" id="Username" placeHolder="请输入用户名" name="admin_name"/></cite><br/>
-        <cite>密码：&nbsp;<input type="password" style="width: 280px;height: 35px" id="Username" placeHolder="请输入密码" name="admin_password"/></cite><br/>
-    		<cite>密码：&nbsp;<input type="text" style="width: 280px;height: 35px" id="Username" placeHolder="请输入联系方式" name="admin_tel"/></cite><br/>
+      <div class="tipinfo">
+        <span><img src="images/ticon.png" /></span>
+        <div class="tipright">
+        <p>是否确认对信息的修改 ？</p>
+        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
         </div>
         </div>
         
         <div class="tipbtn">
-        <input name="" type="submit"  class="sure" value="确定" />&nbsp;
+        <input name="" type="button"  class="sure" value="确定" />&nbsp;
         <input name="" type="button"  class="cancel" value="取消" />
         </div>
-   	    </form>
+    
     </div>
     
     

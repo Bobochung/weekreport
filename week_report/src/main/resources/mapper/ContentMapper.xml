@@ -11,10 +11,11 @@
 	</delete>
 
 	<select id="list" resultMap="ContentBean">
-		select c.*,p.*,cla.*
+		select c.*,p.*,cla.*,t.*
 		from content c 
 		left join part p on c.part_id = p.pid
 		left join classes cla on c.classes_id = cla.classes_id
+		left join teacher t on c.teacher_id = t.tid
 		<where>
             <if test="type!=null">
                 and type like concat('%',#{type},'%')
@@ -41,7 +42,12 @@
 		<association property="classes" javaType="Classes">
 			<id column="classes_id" property="classes_id"/>
 			<result column="classes" property="classes"/>		
-		</association>		
+		</association>	
+		<association property="teacher" javaType="Teacher">
+			<id column="tid" property="tid"/>
+			<result column="teacher_name" property="teacher_name"/>	
+			<result column="teacher_tel" property="teacher_tel"/>	
+		</association>	
 	</resultMap>
 
 </mapper>

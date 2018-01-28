@@ -1,12 +1,18 @@
 package com.rimi.report.service.impl;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.rimi.report.entity.Head;
 import com.rimi.report.mapper.HeadMapper;
 import com.rimi.report.service.HeadService;
 import com.rimi.report.util.Keys;
+
 
 
 @Service
@@ -41,9 +47,13 @@ public class HeadServiceImpl implements HeadService {
 		if(headMapper.getByName(name) !=null) {
 			Head head =headMapper.getByNameandPwd(name,password);
 			if(head.getHead_name().equals(name) && head.getHead_password().equals(password)) {
-				request.getSession().setAttribute(Keys.HEAD, head);
-				request.getSession().setAttribute(Keys.LoginType, Keys.HEAD);
-				request.getSession().setAttribute(Keys.ONLINEUSER, name);
+				Map<String,Object> map = new HashMap<>();
+				map.put("name", name);	
+				for(Head headitem :headMapper.list(map)) {
+					request.getSession().setAttribute(Keys.LOGINNAME,name);
+					request.getSession().setAttribute(Keys.LoginType,"head");
+					request.getSession().setAttribute(Keys.ONLINEUSER,headitem);
+				}				
 				return true;
 			}
 			
@@ -86,6 +96,12 @@ public class HeadServiceImpl implements HeadService {
 	public Head getByName(String name) {
 		
 		return headMapper.getByName(name);
+	}
+
+	@Override
+	public List<Head> list(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return headMapper.list(map);
 	}
 
 }

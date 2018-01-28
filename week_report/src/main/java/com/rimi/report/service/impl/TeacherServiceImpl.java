@@ -1,13 +1,13 @@
 package com.rimi.report.service.impl;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rimi.report.entity.Admin;
-import com.rimi.report.entity.Head;
 import com.rimi.report.entity.Teacher;
 import com.rimi.report.mapper.TeacherMapper;
 import com.rimi.report.service.TeacherService;
@@ -90,5 +90,16 @@ public class TeacherServiceImpl implements TeacherService{
 		
 		return teacherMapper.getByName(name);
 	}
+
+	@Override
+	public List<Teacher> list(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		request.getSession().setAttribute(Keys.TEACHER_LIST, teacherMapper.list(new HashMap<>()));
+		return null;
+	}
+	
+	
+	
+	
 
 }

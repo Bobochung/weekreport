@@ -2,9 +2,9 @@ package com.rimi.report.service.impl;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -96,6 +96,19 @@ public class AdminServiceImpl implements AdminService {
 		return adminMapper.getByName(name);
 	}
 
+	@Override
+	public List<Admin> list(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		request.getSession().setAttribute(Keys.ADMIN_LIST,adminMapper.list());	
+		return adminMapper.list();
+	}
+
+	@Override
+	public void addAdmin(Admin admin) {
+		// TODO Auto-generated method stub
+		adminMapper.addAdmin(admin);
+	}
+	
 	
 
 }
