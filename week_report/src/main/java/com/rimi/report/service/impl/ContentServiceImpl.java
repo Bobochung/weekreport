@@ -3,6 +3,8 @@ package com.rimi.report.service.impl;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +43,7 @@ public class ContentServiceImpl implements ContentService {
 	}
 
 	@Override
-	public List<Content> list(Map<String, Object> map) {
+	public List<Content> list(HttpServletRequest request,Map<String, Object> map) {
 		return contentmapper.list(map);
 	}
 

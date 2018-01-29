@@ -10,8 +10,11 @@
 		delete from teacher where tid= #{tid}
 	</delete>
 
-	<select id="get" parameterType="int" resultType="teacher">
-		select * from teacher where tid= #{tid}
+	<select id="get" parameterType="int" resultMap="TeacherBean">
+		select * from teacher t
+		left join part p on t.part_id = p.pid
+		left join classes cla on t.classes_id = cla.classes_id
+		where tid= #{tid}
 	</select>
 
 	<update id="update" parameterType="teacher">
