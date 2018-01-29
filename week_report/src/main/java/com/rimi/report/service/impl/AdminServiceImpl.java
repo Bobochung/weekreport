@@ -1,6 +1,8 @@
 package com.rimi.report.service.impl;
 
 import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -93,10 +95,10 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<Admin> list(HttpServletRequest request) {
+	public List<Admin> list(HttpServletRequest request,Map<String,Object> map) {
 		// TODO Auto-generated method stub
-		request.getSession().setAttribute(Keys.ADMIN_LIST,adminMapper.list());	
-		return adminMapper.list();
+		request.getSession().setAttribute(Keys.ADMIN_LIST,adminMapper.list(map));	
+		return adminMapper.list(map);
 	}
 
 	@Override

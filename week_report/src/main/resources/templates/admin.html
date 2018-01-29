@@ -23,33 +23,9 @@ $(document).ready(function(){
   $(".cancel").click(function(){
   $(".tip").fadeOut(100);
 });
-  
-  function mycheck(){
-	   if(isNull(form1.Tel.value)){  
-	   alert("请输入联系方式！"); 
-	   return false;
-	   }
-	   if(isNull(form1.Username.value)){  
-	   alert("请输入用户名！"); 
-	   return false;
-	   }
-	   if(isNull(form1.Password.value)){
-	   alert("请输入密码！");
-	   return false;
-	   }
-	      
-	}
-	function isNull(str){
-	if ( str == "" ) return true;
-	var regu = "^[ ]+$";
-	var re = new RegExp(regu);
-	return re.test(str);
-	}
 
-  
-
+});
 </script>
-
 
 </head>
 
@@ -68,34 +44,23 @@ $(document).ready(function(){
     <div class="rightinfo">
     
     <div class="tools">
-    
+    <form action="conditionlist" method="post" name="form1">
     	<ul class="toolbar">
         <li class="click"><span><img src="images/t01.png" /></span>添加</li>
-        <li class="click"><span><img src="images/t02.png" /></span>修改</li>
-        <li><span><img src="images/t03.png" /></span>删除</li>
-        <li><span><img src="images/t04.png" /></span>查询</li>
-        
-        
-        <li>查询类型：  
-        <select name="type" id="Type" class="selecttype" style="width: 100px">
-                    <option value="">请选择</option>
-                    <option value="Admin">管理员</option>
-                    <option value="Head">主管</option>
-                    <option value="Teacher">老师</option>
-        </select>
-        </li>
-        
+                    
         <li>查询条件： 
-        <select name="condition" id="condition" class="selectcondition" style="width: 100px">
+        <select name="conditionkey" id="condition" class="selectcondition" style="width: 100px">
                     <option value="">请选择</option>
-                    <option value="id">ID</option>
-                    <option value="name">姓名</option>
-                    <option value="tel">电话</option>
+                    <option value="aid">ID</option>
+                    <option value="admin_name">姓名</option>
+                    <option value="admin_tel">电话</option>
        </select>
+       <input type="text" name="conditionvalue" ></input>      
        </li>
+       <li><span><input type="submit" value="查询"></input></span> </li>
        </ul>
         
-        
+       </form> 
     
     </div>
     
@@ -122,7 +87,7 @@ $(document).ready(function(){
     </table>
     
    
-    <div class="pagin">
+ <!--    <div class="pagin">
     	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
         <ul class="paginList">
         <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
@@ -135,7 +100,7 @@ $(document).ready(function(){
         <li class="paginItem"><a href="javascript:;">10</a></li>
         <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
         </ul>
-    </div>
+    </div> -->
     
     
     <div class="tip">
@@ -154,6 +119,7 @@ $(document).ready(function(){
         <div class="tipbtn">
         <input name="" type="submit"  class="sure" value="确定" />&nbsp;
         <input name="" type="button"  class="cancel" value="取消" />
+        
         </div>
    	    </form>
     </div>
