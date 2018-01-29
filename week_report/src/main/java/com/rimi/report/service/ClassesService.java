@@ -12,7 +12,7 @@ public interface ClassesService {
 	/**
 	 * 删除班级
 	 */
-	void delete(Classes classes);
+	void delete(int  id);
 	/**
 	 * 更新班级
 	 */
@@ -21,7 +21,7 @@ public interface ClassesService {
 	/**
 	 * 获得班级总数
 	 */
-	int total(Classes classes);
+	int total();
 	/**
 	 * 得到班级列表
 	 * @return
@@ -32,7 +32,7 @@ public interface ClassesService {
 	 * 根据ID得到班级
 	 * @return
 	 */	
-	Classes getByID();
+	Classes getByID(int id);
 	
 
 }

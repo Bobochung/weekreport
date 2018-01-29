@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rimi.report.mapper.ClassesMapper">
+    
+    <insert id="add" parameterType="Classes">
+		insert into Classes (Classes) values (#{classes})
+	</insert>	
+	<delete id="delete" parameterType="Classes">
+		delete from Classes where classes_id= #{classes_id}
+	</delete>
+
+	<select id="get" parameterType="int" resultType="Classes">
+		select * from Classes where classes_id= #{classes_id}
+	</select>
+
+	<update id="update" parameterType="Classes">
+		update Classes set classes=#{classes}where classes_id= #{classes_id}
+	</update>
+	<select id="list" resultType="Classes">
+		select * from Classes
+	</select>
+    <select id="total" resultType="int">
+		select count(*) from Classes
+	</select>
+    
+    
+</mapper>
