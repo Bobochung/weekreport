@@ -32,7 +32,7 @@ $(document).ready(function(){
 
 
 <body>
-	<form>
+
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -58,11 +58,11 @@ $(document).ready(function(){
   		<td align="center" style="font-size: 30px;" colspan="3">一周工作总结汇报表</td>
   		</tr>
   		<tr>
-  		<td align="center" style="font-size: 20px;" colspan="3">开始时间：<input type="date" name="beginTime"></input> &nbsp; 结束时间：<input type="date" name="endTime"></input></td>
+  		<td align="center" style="font-size: 20px;" colspan="3">2018.1.23---2018.1.30</td>
   		</tr>
   		<tr>
-  		<td align="center" style="font-size: 25px;" colspan="2"><a>所属部门：</a><a th:text="${session.teacheritem.part.part_name}"></a> <a>所属班级：</a><a th:text="${session.teacheritem.classes.classes}"></a></td>
-  		<td align="center" style="font-size: 25px;" colspan="1"><a>姓名：</a><a th:text="${session.teacheritem.teacher_name}"></a></td>
+  		<td align="center" style="font-size: 25px;" colspan="2"><a>所属部门：</a><a th:text="*{session.user}"></a></td>
+  		<td align="center" style="font-size: 25px;" colspan="1"><a>姓名：</a><a th:text="${session.user}"></a></td>
   		</tr>
   		<tr style="height: 30px;">
   		<td align="center" style="font-size: 30px;" colspan="2" width="30%"><b>项目</b></td>
@@ -74,14 +74,68 @@ $(document).ready(function(){
   		<td>工作完成情况</td>
   		<td>
   			<table class="tablelist">
-    
+    	<thead>
+    	<tr>
+        <th>编号<i class="sort"><img src="images/px.gif" /></i></th>
+        <th>标题</th>
+        <th>用户</th>
+        <th>籍贯</th>
+        <th>发布时间</th>
+        <th>是否审核</th>
+        <th>操作</th>
+        </tr>
+        </thead>
         <tbody>
         <tr>
         <td>20130908</td>
-   
+        <td>王金平幕僚：马英九声明字字见血 人活着没意思</td>
+        <td>admin</td>
+        <td>江苏南京</td>
+        <td>2013-09-09 15:05</td>
+        <td>已审核</td>
         <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
         </tr> 
-            
+        
+        <tr>
+        <td>20130907</td>
+        <td>温州19名小学生中毒流鼻血续：周边部分企业关停</td>
+        <td></td>
+        <td>山东济南</td>
+        <td>2013-09-08 14:02</td>
+        <td>未审核</td>
+        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
+        </tr>
+        
+        
+<tr>
+        <td>20130906</td>
+        <td>社科院:电子商务促进了农村经济结构和社会转型</td>
+        <td>user</td>
+        <td>江苏无锡</td>
+        <td>2013-09-07 13:16</td>
+        <td>未审核</td>
+        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
+        </tr>
+        <tr>
+        <td>20130906</td>
+        <td>社科院:电子商务促进了农村经济结构和社会转型</td>
+        <td>user</td>
+        <td>江苏无锡</td>
+        <td>2013-09-07 13:16</td>
+        <td>未审核</td>
+        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
+        </tr>
+        <tr>
+        <td>20130906</td>
+        <td>社科院:电子商务促进了农村经济结构和社会转型</td>
+        <td>user</td>
+        <td>江苏无锡</td>
+        <td>2013-09-07 13:16</td>
+        <td>未审核</td>
+        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
+        </tr>
+        
+     
                 
         </tbody>
     </table>
@@ -93,13 +147,49 @@ $(document).ready(function(){
     		<td>问题及协助</td>
     		<td>
     			<table class="tablelist">
-    
+    	<thead>
+    	<tr>
+        <th>编号<i class="sort"><img src="images/px.gif" /></i></th>
+        <th>标题</th>
+        <th>用户</th>
+        <th>籍贯</th>
+        <th>发布时间</th>
+        <th>是否审核</th>
+        <th>操作</th>
+        </tr>
+        </thead>
         <tbody>
         <tr>
         <td>20130908</td>
-        
+        <td>王金平幕僚：马英九声明字字见血 人活着没意思</td>
+        <td>admin</td>
+        <td>江苏南京</td>
+        <td>2013-09-09 15:05</td>
+        <td>已审核</td>
         <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
         </tr> 
+        
+        <tr>
+        <td>20130907</td>
+        <td>温州19名小学生中毒流鼻血续：周边部分企业关停</td>
+        <td></td>
+        <td>山东济南</td>
+        <td>2013-09-08 14:02</td>
+        <td>未审核</td>
+        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
+        </tr>
+        
+        <tr>
+        <td>20130906</td>
+        <td>社科院:电子商务促进了农村经济结构和社会转型</td>
+        <td>user</td>
+        <td>江苏无锡</td>
+        <td>2013-09-07 13:16</td>
+        <td>未审核</td>
+        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
+        </tr>
+        
+     
                 
         </tbody>
     </table>
@@ -116,16 +206,48 @@ $(document).ready(function(){
   		<td>
   		
   		<table class="tablelist">
-    
+    	<thead>
+    	<tr>
+        <th>编号<i class="sort"><img src="images/px.gif" /></i></th>
+        <th>标题</th>
+        <th>用户</th>
+        <th>籍贯</th>
+        <th>发布时间</th>
+        <th>是否审核</th>
+        <th>操作</th>
+        </tr>
+        </thead>
         <tbody>
         <tr>
         <td>20130908</td>
-        
+        <td>王金平幕僚：马英九声明字字见血 人活着没意思</td>
+        <td>admin</td>
+        <td>江苏南京</td>
+        <td>2013-09-09 15:05</td>
+        <td>已审核</td>
         <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
         </tr> 
         
+        <tr>
+        <td>20130907</td>
+        <td>温州19名小学生中毒流鼻血续：周边部分企业关停</td>
+        <td></td>
+        <td>山东济南</td>
+        <td>2013-09-08 14:02</td>
+        <td>未审核</td>
+        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
+        </tr>
         
-     
+        <tr>
+        <td>20130906</td>
+        <td>社科院:电子商务促进了农村经济结构和社会转型</td>
+        <td>user</td>
+        <td>江苏无锡</td>
+        <td>2013-09-07 13:16</td>
+        <td>未审核</td>
+        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
+        </tr>
+        
      
                 
         </tbody>
@@ -137,14 +259,50 @@ $(document).ready(function(){
     		<td>问题及协助</td>
     		<td>
     		<table class="tablelist">
-   
+    	<thead>
+    	<tr>
+        <th>编号<i class="sort"><img src="images/px.gif" /></i></th>
+        <th>标题</th>
+        <th>用户</th>
+        <th>籍贯</th>
+        <th>发布时间</th>
+        <th>是否审核</th>
+        <th>操作</th>
+        </tr>
+        </thead>
         <tbody>
         <tr>
         <td>20130908</td>
-        
+        <td>王金平幕僚：马英九声明字字见血 人活着没意思</td>
+        <td>admin</td>
+        <td>江苏南京</td>
+        <td>2013-09-09 15:05</td>
+        <td>已审核</td>
         <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
         </tr> 
-       
+        
+        <tr>
+        <td>20130907</td>
+        <td>温州19名小学生中毒流鼻血续：周边部分企业关停</td>
+        <td></td>
+        <td>山东济南</td>
+        <td>2013-09-08 14:02</td>
+        <td>未审核</td>
+        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
+        </tr>
+        
+        <tr>
+        <td>20130906</td>
+        <td>社科院:电子商务促进了农村经济结构和社会转型</td>
+        <td>user</td>
+        <td>江苏无锡</td>
+        <td>2013-09-07 13:16</td>
+        <td>未审核</td>
+        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
+        </tr>
+        
+     
+                
         </tbody>
     </table>
   		
@@ -181,6 +339,5 @@ $(document).ready(function(){
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
 	</script>
-	</form>
 </body>
 </html>

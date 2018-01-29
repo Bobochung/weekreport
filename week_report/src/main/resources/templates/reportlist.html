@@ -88,7 +88,7 @@ $(document).ready(function(){
         <td th:text="${content.classes.classes}">已审核</td>
         <td th:text="${content.teacher.teacher_name}">已审核</td>
         <td th:text="${content.teacher.teacher_tel}">已审核</td>
-        <td><a href="#" th:href="|@{/report}?tid=${content.teacher.tid}|" class="tablelink">查看该教师周报</a>     <a href="#" class="tablelink"> 删除</a></td>
+        <td><a href="#" th:href="@{/report}" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
         </tr> 
                 
         </tbody>

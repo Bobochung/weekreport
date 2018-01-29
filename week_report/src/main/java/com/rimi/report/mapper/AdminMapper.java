@@ -48,7 +48,7 @@ public interface AdminMapper {
 	 * @return 返回包含对象的list
 	 */
 	
-	public List<Admin> list(Map<String, Object> map);
+	public List<Admin> list();
 	
 	/**
 	 * 查询总数

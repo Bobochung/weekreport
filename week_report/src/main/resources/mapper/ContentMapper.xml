@@ -22,19 +22,7 @@
             </if>   
             <if test="id!=null and id!=0">
                 and cid = #{id} 
-            </if>  
-            <if test="teacher_id!=null and teacher_id!=0">
-                and teacher_id = #{teacher_id} 
-            </if> 
-            <if test="classes_id!=null and classes_id!=0">
-                and classses_id = #{classes_id} 
-            </if> 
-            <if test="beginTime!=null and beginTime!=''">
-            	<![CDATA[ and DATE_FORMAT(data,'%Y-%m-%d')>=DATE_FORMAT(#{beginTime},'%Y-%m-%d')]]>
-            </if> 
-            <if test="endTime!=null and endTime!=''">
-             	<![CDATA[ and DATE_FORMAT(data,'%Y-%m-%d')<=DATE_FORMAT(#{beginTime},'%Y-%m-%d')]]>
-            </if>           
+            </if>              
         </where> 
 	</select>
     <select id="total" resultType="int">
