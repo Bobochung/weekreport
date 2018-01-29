@@ -1,10 +1,6 @@
 package com.rimi.report.service.impl;
 
 import java.util.List;
-<<<<<<< HEAD
-=======
-
->>>>>>> parent of d2d5c47... 条件查询
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

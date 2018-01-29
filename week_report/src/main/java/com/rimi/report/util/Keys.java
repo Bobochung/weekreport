@@ -51,6 +51,7 @@ public class Keys {
 	 * 单条数据
 	 */
 	public static final String ADMINITEM = "adminitem";
+	public static final String TEACHER_ITEM = "teacheritem";
 	
 	
 
