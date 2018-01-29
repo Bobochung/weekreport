@@ -24,7 +24,6 @@ $(document).ready(function(){
   $(".tip").fadeOut(100);
 });
   
-<<<<<<< HEAD
   function mycheck(){
 	   if(isNull(form1.Tel.value)){  
 	   alert("请输入联系方式！"); 
@@ -49,9 +48,7 @@ $(document).ready(function(){
 
   
 
-=======
   
->>>>>>> f9685dd190227fcae6962468eb43e0e993a527ba
 });
 </script>
 
@@ -73,38 +70,23 @@ $(document).ready(function(){
     <div class="rightinfo">
     
     <div class="tools">
-    
-    	<ul class="toolbar">
-        <li class="click"><span><img src="images/t01.png" /></span>添加</li>
-<<<<<<< HEAD
-=======
-        <li class="click"><span><img src="images/t02.png" /></span>修改</li>
-        <li><span><img src="images/t03.png" /></span>删除</li>
-        <li><span><img src="images/t04.png" /></span>查询</li>
-        
-        
-        <li>查询类型：  
-        <select name="type" id="Type" class="selecttype" style="width: 100px">
-                    <option value="">请选择</option>
-                    <option value="Admin">管理员</option>
-                    <option value="Head">主管</option>
-                    <option value="Teacher">老师</option>
-        </select>
-        </li>
-        
+     <form method="post" action="conditionlist" name="form1">
+     
+    	 <ul class="toolbar">
+
+        <li class="click"><span><img src="images/t01.png" /></span>添加</li>  
         <li>查询条件： 
-        <select name="condition" id="condition" class="selectcondition" style="width: 100px">
+        <select name="conditionkey" id="condition" class="selectcondition" style="width: 100px">
                     <option value="">请选择</option>
-                    <option value="id">ID</option>
-                    <option value="name">姓名</option>
-                    <option value="tel">电话</option>
+                    <option value="aid">ID</option>
+                    <option value="admin_name">姓名</option>
+                    <option value="admin_tel">电话</option>
        </select>
        </li>
->>>>>>> f9685dd190227fcae6962468eb43e0e993a527ba
+       <li><span><input type="text" name="conditionvalue"></input></span></li> 
+       <li><span><img src="images/t04.png" /></span><input type="submit" value="查询"></input></li>
         </ul>
-        
-        
-    
+        </form>
     </div>
     
     
@@ -112,47 +94,26 @@ $(document).ready(function(){
     	<thead>
     	<tr>
         
-<<<<<<< HEAD
         <th>编号</th>
         <th>用户名</th>
         <th>密码</th>
         <th>联系电话</th>
-=======
-        <th>编号<i class="sort"><img src="images/px.gif" /></i></th>
-        <th>标题</th>
-        <th>用户</th>
-        <th>籍贯</th>      
-        <th>发布时间</th>
-        <th>是否审核</th>
->>>>>>> f9685dd190227fcae6962468eb43e0e993a527ba
         <th>操作</th>
         </tr>
         </thead>
         <tbody>
-<<<<<<< HEAD
         <tr th:each="admin:${session.adminlist}">
         <td th:text="${admin.aid}"></td>
         <td th:text="${admin.admin_name}">20130908</td>
         <td th:text="${admin.admin_password}">>王金平幕僚：马英九声明字字见血 人活着没意思</td>
         <td th:text="${admin.admin_tel}">admin</td>
         <td><a href="#" th:href="|@{/update}?aid=${admin.aid}|" class="tablelink">查看</a>     <a href="#" th:href="|@{/deleteAdmin}?aid=${admin.aid}|" class="tablelink"> 删除</a></td>
-=======
-        <tr>
-        <td>20130908</td>
-        <td>王金平幕僚：马英九声明字字见血 人活着没意思</td>
-        <td>admin</td>
-        <td>江苏南京</td>
-        <td>2013-09-09 15:05</td>
-        <td>已审核</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
->>>>>>> f9685dd190227fcae6962468eb43e0e993a527ba
-        </tr> 
-                
+        </tr>                
         </tbody>
     </table>
     
    
-    <div class="pagin">
+  <!--   <div class="pagin">
     	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
         <ul class="paginList">
         <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
@@ -165,7 +126,7 @@ $(document).ready(function(){
         <li class="paginItem"><a href="javascript:;">10</a></li>
         <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
         </ul>
-    </div>
+    </div> -->
     
     
     <div class="tip">

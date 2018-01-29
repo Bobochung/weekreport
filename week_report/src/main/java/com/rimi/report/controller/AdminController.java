@@ -1,6 +1,8 @@
 package com.rimi.report.controller;
 
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,37 +20,37 @@ public class AdminController {
 	AdminService as;
 	
 	@RequestMapping("admin")
-	public String admin(HttpServletRequest request) {	
-	  as.list(request);
+	public String admin(HttpServletRequest request,Map<String, Object> map) {	
+	  as.list(request,map);
 	  return "admin";
 	}
 	
 	@RequestMapping("addAdmin") 
-    public String add(HttpServletRequest request) { 
+    public String add(HttpServletRequest request,Map<String, Object> map) { 
 		Admin admin = new Admin();
 		admin.setAdmin_name(request.getParameter("admin_name"));
 		admin.setAdmin_password(request.getParameter("admin_password"));
 		admin.setAdmin_tel(request.getParameter("admin_tel"));
 		as.addAdmin(admin);
-		as.list(request);
+		as.list(request,map);
 		return "admin";
     }
 	
 	@RequestMapping("deleteAdmin")
-	public String deleteAdmin(HttpServletRequest request) {	
+	public String deleteAdmin(HttpServletRequest request,Map<String, Object> map) {	
 	  as.delete(Integer.parseInt(request.getParameter("aid")));
-	  as.list(request);
+	  as.list(request,map);
 	  return "admin";
 	}
 	@RequestMapping("updateAdmin")
-	public String updateAdmin(HttpServletRequest request) {	
+	public String updateAdmin(HttpServletRequest request,Map<String, Object> map) {	
 		Admin admin = new Admin();
 		admin.setAid(Integer.parseInt(request.getParameter("aid")));
 		admin.setAdmin_name(request.getParameter("admin_name"));
 		admin.setAdmin_password(request.getParameter("admin_password"));
 		admin.setAdmin_tel(request.getParameter("admin_tel"));
 		as.update(admin);
-	  as.list(request);
+	  as.list(request,map);
 	  return "admin";
 	}
 	
@@ -56,6 +58,15 @@ public class AdminController {
 	public String update(HttpServletRequest request) {
 		request.getSession().setAttribute(Keys.ADMINITEM, as.getByID(Integer.parseInt(request.getParameter("aid"))));
 		return "updateAdmin";		
+	}
+	
+	@RequestMapping("conditionlist")
+	public String conditionlist(HttpServletRequest request,Map<String, Object> map) {
+		if (request.getParameter("conditionkey")!=null) {
+			map.put(request.getParameter("conditionkey"), request.getParameter("conditionvalue"));
+		}	
+		as.list(request, map);
+		return "admin";		
 	}
 	
 	

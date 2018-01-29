@@ -3,6 +3,7 @@ package com.rimi.report.service.impl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -97,10 +98,10 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<Admin> list(HttpServletRequest request) {
+	public List<Admin> list(HttpServletRequest request,Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		request.getSession().setAttribute(Keys.ADMIN_LIST,adminMapper.list());	
-		return adminMapper.list();
+		request.getSession().setAttribute(Keys.ADMIN_LIST,adminMapper.list(map));	
+		return adminMapper.list(map);
 	}
 
 	@Override
