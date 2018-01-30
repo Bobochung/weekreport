@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#" th:href="@{/index}">首页</a></li>
+    <li><a href="#" >修改班级信息</a></li>
+    </ul>
+    </div>
+    
+    	<div class="tiptop"><span>班级信息</span><a th:href="@{/classes}"></a></div>
+        <form method="post" action="updateClasses" name="form1" onSubmit="return mycheck();"> 
+        <div class="tipinfo">
+     
+        <div class="tipright">
+        <cite><input type="hidden" style="width: 280px;height: 35px" id="Username" name="classes_id" th:value="${session.classesitem.classes_id}"/></cite><br/>
+        <cite>班级:<input type="text" style="width: 280px;height: 35px" id="Classes" name="classes" placeHolder="请输入修改后班级" th:value="${session.classesitem.classes}"/></cite><br/>
+       
+        </div>
+        </div>
+        
+        <div class="tipbtn">
+        <input name="" type="submit"  class="sure" value="确定" />&nbsp;
+        <button class="cancel"><a th:href="@{/classes}">取消</a></button>
+        </div>
+   	    </form>
+    
+    
+    
+      
+</body>
+</html>

@@ -1,6 +1,9 @@
 package com.rimi.report.service.impl;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.rimi.report.entity.Classes;
 import com.rimi.report.mapper.ClassesMapper;
 import com.rimi.report.service.ClassesService;
+import com.rimi.report.util.Keys;
 
 @Service
 public class ClassesServiceImpl implements ClassesService {
@@ -40,9 +44,9 @@ public class ClassesServiceImpl implements ClassesService {
 	}
 
 	@Override
-	public List<Classes> list() {
-		
-		return classMapper.list();
+	public List<Classes> list(HttpServletRequest request, Map<String, Object> map) {
+		request.getSession().setAttribute(Keys.CLASSES_LIST,classMapper.list(map));	
+		return classMapper.list(map);
 	}
 
 	@Override
@@ -50,5 +54,8 @@ public class ClassesServiceImpl implements ClassesService {
 		
 		return classMapper.get(id);
 	}
+
+	
+	
 
 }

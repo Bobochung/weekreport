@@ -18,6 +18,11 @@
 	</update>
 	<select id="list" resultType="Classes">
 		select * from Classes
+		<where>
+            <if test="classes!=null">
+                and classes like concat('%',#{classes},'%')
+            </if>                
+        </where> 
 	</select>
     <select id="total" resultType="int">
 		select count(*) from Classes

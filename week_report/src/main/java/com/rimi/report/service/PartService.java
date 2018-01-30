@@ -1,8 +1,12 @@
 package com.rimi.report.service;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import com.rimi.report.entity.Part;
+
 
 public interface PartService {
 	/**
@@ -12,7 +16,7 @@ public interface PartService {
 	/**
 	 * 删除部门
 	 */
-	void delete(Part part);
+	void delete(int id);
 	/**
 	 * 更新部门
 	 */
@@ -26,12 +30,12 @@ public interface PartService {
 	/**
 	 * 得到部门列表
 	 */
-	List<Part> list();
+	List<Part> list(HttpServletRequest request,Map<String, Object> map);
 	
 	/**
 	 * 根据ID得到部门
 	 * @return
 	 */	
-	Part getByID();
+	Part getByID(int id);
 
 }

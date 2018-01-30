@@ -21,6 +21,8 @@ public class Keys {
 	public static final String ADMIN_LIST = "adminlist";
 	public static final String HEAD_LIST = "headlist";
 	public static final String TEACHER_LIST = "teacherlist";
+	public static final String CLASSES_LIST = "classeslist";
+	public static final String PART_LIST = "partlist";
 	/**
 	 * 本周情况
 	 */
@@ -52,7 +54,8 @@ public class Keys {
 	 */
 	public static final String ADMINITEM = "adminitem";
 	public static final String TEACHER_ITEM = "teacheritem";
-	
+	public static final String CLASSES_ITEM = "classesitem";
+	public static final String PART_ITEM = "partitem";
 	
 
 }

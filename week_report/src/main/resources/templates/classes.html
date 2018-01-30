@@ -23,26 +23,9 @@ $(document).ready(function(){
   $(".cancel").click(function(){
   $(".tip").fadeOut(100);
 });
-  
-  function mycheck(){
-	   if(isNull(form1.Tel.value)){  
-	   alert("请输入联系方式！"); 
-	   return false;
-	   }
-	 
-	      
-	}
-	function isNull(str){
-	if ( str == "" ) return true;
-	var regu = "^[ ]+$";
-	var re = new RegExp(regu);
-	return re.test(str);
-	}
 
-  
-
+});
 </script>
-
 
 </head>
 
@@ -53,7 +36,7 @@ $(document).ready(function(){
     <span>位置：</span>
     <ul class="placeul">
     <li><a href="#" th:href="@{/index}">首页</a></li>
-    <li><a href="#" th:href="@{/admin}">班级管理</a></li>
+    <li><a href="#" th:href="@{/classes}">班级管理</a></li>
     
     </ul>
     </div>
@@ -61,43 +44,46 @@ $(document).ready(function(){
     <div class="rightinfo">
     
     <div class="tools">
-    
+    <form action="conditionlist1" method="post" name="form1">
     	<ul class="toolbar">
         <li class="click"><span><img src="images/t01.png" /></span>添加</li>
-        <li class="click"><span><img src="images/t02.png" /></span>修改</li>
-        <li><span><img src="images/t03.png" /></span>删除</li>
-        <li><span><img src="images/t04.png" /></span>查询</li>
-     
+                    
         <li>查询条件： 
-        <select name="condition" id="condition" class="selectcondition" style="width: 100px">
+        <select name="conditionkey1" id="condition" class="selectcondition" style="width: 100px">
                     <option value="">请选择</option>
-                    <option value="id">ID</option>
-                    <option value="class">班级</option>                    
+                    <option value="classes_id">ID</option>
+                    <option value="classes">班级</option>
+                    
        </select>
+       <input type="text" name="conditionvalue1" ></input>      
        </li>
-       </ul>   
+       <li><span><input type="submit" value="查询"></input></span> </li>
+       </ul>
+        
+       </form> 
+    
     </div>
-  <table class="tablelist">
+    
+    
+    <table class="tablelist">
     	<thead>
     	<tr>    
         <th>编号</th>
-        <th>班级名称</th>       
+        <th>班级</th>        
         <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="admin:${session.adminlist}">
-        <td th:text="${admin.aid}"></td>
-        <td th:text="${admin.admin_name}">20130908</td>
-        <td th:text="${admin.admin_password}"></td>
-        <td th:text="${admin.admin_tel}">admin</td>
-        <td><a href="#" th:href="|@{/update}?aid=${admin.aid}|" class="tablelink">查看</a>     <a href="#" th:href="|@{/deleteAdmin}?aid=${admin.aid}|" class="tablelink"> 删除</a></td>
+        <tr th:each="classes:${session.classeslist}">
+        <td th:text="${classes.classes_id}"></td>
+        <td th:text="${classes.classes}"></td>       
+        <td><a href="#" th:href="|@{/update1}?cid=${classes.classes_id}|" class="tablelink">修改</a>     <a href="#" th:href="|@{/deleteClasses}?classes_id=${classes.classes_id}|" class="tablelink"> 删除</a></td>
         </tr>      
         </tbody>
     </table>
     
    
-    <div class="pagin">
+ <!--    <div class="pagin">
     	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
         <ul class="paginList">
         <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
@@ -110,7 +96,7 @@ $(document).ready(function(){
         <li class="paginItem"><a href="javascript:;">10</a></li>
         <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
         </ul>
-    </div>
+    </div> -->
     
     
     <div class="tip">
@@ -120,14 +106,14 @@ $(document).ready(function(){
      
         <div class="tipright">
         
-        <cite>班级:<input type="text" style="width: 280px;height: 35px" id="class" placeHolder="请输入班级" name="classes"/></cite><br/>
-        
+        <cite>班级:<input type="text" style="width: 280px;height: 35px" id="class" placeHolder="请输入班级" name="classes_name"/></cite><br/>       
         </div>
         </div>
         
         <div class="tipbtn">
         <input name="" type="submit"  class="sure" value="确定" />&nbsp;
         <input name="" type="button"  class="cancel" value="取消" />
+        
         </div>
    	    </form>
     </div>

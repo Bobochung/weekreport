@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rimi.report.mapper.PartMapper">
+    
+    <insert id="add" parameterType="Part">
+		insert into Part (part_name) values (#{part_name})
+	</insert>	
+	<delete id="delete" parameterType="Part">
+		delete from Part where pid= #{pid}
+	</delete>
+
+	<select id="get" parameterType="int" resultType="Part">
+		select * from Part where pid= #{pid}
+	</select>
+
+	<update id="update" parameterType="Part">
+		update Part set part_name=#{part_name} where pid= #{pid}
+	</update>
+	<select id="list" resultType="Part">
+		select * from Part		
+	</select>
+    <select id="total" resultType="int">
+		select count(*) from Part
+	</select>
+    
+    
+</mapper>

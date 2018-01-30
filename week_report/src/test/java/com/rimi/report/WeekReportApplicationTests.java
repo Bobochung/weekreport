@@ -35,11 +35,9 @@ public class WeekReportApplicationTests {
 	ClassesService cs;
 	@Test
 	public void contextLoads() {
-		List<Classes> c = cs.list();
-		for (Classes classes : c) {
-			System.out.println(classes);
+		
 		}
 		
 	}
 
-}
+

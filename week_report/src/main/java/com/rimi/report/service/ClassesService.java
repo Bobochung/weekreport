@@ -1,6 +1,9 @@
 package com.rimi.report.service;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import com.rimi.report.entity.Classes;
 
@@ -26,7 +29,7 @@ public interface ClassesService {
 	 * 得到班级列表
 	 * @return
 	 */	
-	List<Classes> list();
+	List<Classes> list(HttpServletRequest request,Map<String, Object> map);
 	
 	/**
 	 * 根据ID得到班级
@@ -34,5 +37,5 @@ public interface ClassesService {
 	 */	
 	Classes getByID(int id);
 	
-
+	
 }

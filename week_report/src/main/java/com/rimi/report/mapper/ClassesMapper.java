@@ -43,7 +43,7 @@ public interface ClassesMapper {
 	 * @return 返回包含对象的list
 	 */
 	
-	public List<Classes> list();
+	public List<Classes> list(Map<String, Object> map);
 	
 	/**
 	 * 查询总数

@@ -24,10 +24,8 @@ $(document).ready(function(){
   $(".tip").fadeOut(100);
 });
 
-
 });
 </script>
-
 
 </head>
 
@@ -38,7 +36,7 @@ $(document).ready(function(){
     <span>位置：</span>
     <ul class="placeul">
     <li><a href="#" th:href="@{/index}">首页</a></li>
-    <li><a href="#" th:href="@{/reportlist}">全部周报</a></li>
+    <li><a href="#" th:href="@{/part}">部门管理</a></li>
     
     </ul>
     </div>
@@ -46,53 +44,46 @@ $(document).ready(function(){
     <div class="rightinfo">
     
     <div class="tools">
-    
+    <form action="conditionlistTwo" method="post" name="form1">
     	<ul class="toolbar">
-        <li><span><img src="images/t04.png" /></span>统计</li>
-        </ul>
+        <li class="click"><span><img src="images/t01.png" /></span>添加</li>
+                    
+        <li>查询条件： 
+        <select name="conditionkeyTwo" id="condition" class="selectcondition" style="width: 100px">
+                    <option value="">请选择</option>
+                    <option value="pid">ID</option>
+                    <option value="part_name">部门</option>
+                    
+       </select>
+       <input type="text" name="conditionvalueTwo" ></input>      
+       </li>
+       <li><span><input type="submit" value="查询"></input></span> </li>
+       </ul>
         
-        
-        <ul class="toolbar1">
-        <li><span><img src="images/t05.png" /></span>设置</li>
-        </ul>
+       </form> 
     
     </div>
     
     
     <table class="tablelist">
     	<thead>
-    	<tr>
-        
-        <th>编号<i class="sort"><img src="images/px.gif" /></i></th>
-        <th>内容</th>
-        <th>类型</th>
-        <th>时间</th>
-        <th>所属部门</th>
-        <th>所属班级</th>
-        <th>所属教师</th>
-        <th>联系电话</th>
+    	<tr>    
+        <th>编号</th>
+        <th>部门</th>        
         <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="content:${session.contentlist}">
-        
-        <td th:text="${content.cid}">20130908</td>
-        <td th:text="${content.content}">王金平幕僚：马英九声明字字见血 人活着没意思</td>
-        <td th:text="${content.type}">admin</td>
-        <td th:text="${content.date}">江苏南京</td>
-        <td th:text="${content.part.part_name}">2013-09-09 15:05</td>
-        <td th:text="${content.classes.classes}">已审核</td>
-        <td th:text="${content.teacher.teacher_name}">已审核</td>
-        <td th:text="${content.teacher.teacher_tel}">已审核</td>
-        <td><a href="#" th:href="|@{/report}?tid=${content.teacher.tid}|" class="tablelink">查看该教师周报</a>     <a href="#" class="tablelink" th:href="|@{/deletereport}?cid=${content.cid}|"> 删除</a></td>
-        </tr> 
-                
+        <tr th:each="part:${session.partlist}">
+        <td th:text="${part.pid}"></td>
+        <td th:text="${part.part_name}"></td>       
+        <td><a href="#" th:href="|@{/updateTwo}?pid=${part.pid}|" class="tablelink">修改</a>     <a href="#" th:href="|@{/deletePart}?pid=${part.pid}|" class="tablelink"> 删除</a></td>
+        </tr>      
         </tbody>
     </table>
     
    
-   <!--  <div class="pagin">
+ <!--    <div class="pagin">
     	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
         <ul class="paginList">
         <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
@@ -109,21 +100,22 @@ $(document).ready(function(){
     
     
     <div class="tip">
-    	<div class="tiptop"><span>提示信息</span><a></a></div>
-        
-      <div class="tipinfo">
-        <span><img src="images/ticon.png" /></span>
+    	<div class="tiptop"><span>添加部门</span><a></a></div>
+        <form method="post" action="addPart" name="form1" onSubmit="return mycheck();"> 
+        <div class="tipinfo">
+     
         <div class="tipright">
-        <p>是否确认对信息的修改 ？</p>
-        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+        
+        <cite>班级:<input type="text" style="width: 280px;height: 35px" id="class" placeHolder="请输入部门" name="part_name"/></cite><br/>       
         </div>
         </div>
         
         <div class="tipbtn">
-        <input name="" type="button"  class="sure" value="确定" />&nbsp;
+        <input name="" type="submit"  class="sure" value="确定" />&nbsp;
         <input name="" type="button"  class="cancel" value="取消" />
+        
         </div>
-    
+   	    </form>
     </div>
     
     

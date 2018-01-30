@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>网站后台管理系统HTML模板--模板之家 www.cssmoban.com</title>
+<title></title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery.js"></script>
 
@@ -23,6 +23,20 @@ $(document).ready(function(){
   $(".cancel").click(function(){
   $(".tip").fadeOut(100);
 });
+  function search() {  
+      $.ajax({    
+          type: "post",    
+          url: 'reportitem',
+          async:true,//是否异步
+          data: {  
+        	  	tid: $("#tid").val(),  
+        	  	classes_id: $("#classes_id").val(),  
+        	  	beginTime: $("#beginTime").val(),  
+        	  	endTime : $("#endTime").val(),  
+          }  
+      });  
+  } 
+ 
 
 });
 </script>
@@ -32,13 +46,12 @@ $(document).ready(function(){
 
 
 <body>
-	<form>
+	<form method="post" th:action="@{reportitem}">
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">数据表</a></li>
-    <li><a href="#">基本内容</a></li>
+    <li><a href="#" th:href="@{index}">首页</a></li>
+    <li><a href="#" th:href="@{reportlist}">全部周报</a></li>
     </ul>
     </div>
     
@@ -48,8 +61,10 @@ $(document).ready(function(){
     
     	<ul class="toolbar">
         <li class="click"><span><img src="images/t01.png" /></span>添加</li>
+    
         </ul>
-       
+       <input type="hidden" th:value="${session.teacheritem.tid}" name="tid" id="tid"></input>
+       <input type="hidden" th:value="${session.teacheritem.classes.classes_id}" name="classes_id" id="classes_id"></input> 
     
     </div>
   	<table class="tablelist" border="2">
@@ -58,7 +73,11 @@ $(document).ready(function(){
   		<td align="center" style="font-size: 30px;" colspan="3">一周工作总结汇报表</td>
   		</tr>
   		<tr>
-  		<td align="center" style="font-size: 20px;" colspan="3">开始时间：<input type="date" name="beginTime"></input> &nbsp; 结束时间：<input type="date" name="endTime"></input></td>
+  		<td align="center" style="font-size: 20px;" colspan="3">
+  		开始时间：<input type="date" name="beginTime" id="beginTime"></input> &nbsp; 
+  		结束时间：<input type="date" name="endTime" id="endTime"></input>
+  		<button onclick="search();" id="search">查询</button>
+  		</td>
   		</tr>
   		<tr>
   		<td align="center" style="font-size: 25px;" colspan="2"><a>所属部门：</a><a th:text="${session.teacheritem.part.part_name}"></a> <a>所属班级：</a><a th:text="${session.teacheritem.classes.classes}"></a></td>
@@ -76,10 +95,10 @@ $(document).ready(function(){
   			<table class="tablelist">
     
         <tbody>
-        <tr>
-        <td>20130908</td>
+        <tr th:each="content:${session.currentcontentconlist}">
+        <td th:text="${content.content}">20130908</td>
    
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
+        <td>   <a href="#" class="tablelink" th:href="|@{deletecontent}?cid=${content.cid}|"> 删除</a></td>
         </tr> 
             
                 
@@ -95,10 +114,9 @@ $(document).ready(function(){
     			<table class="tablelist">
     
         <tbody>
-        <tr>
-        <td>20130908</td>
-        
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
+        <tr th:each="content:${session.currentcontentprolist}">
+        <td th:text="${content.content}">20130908</td>  
+        <td> <a href="#" th:href="|@{deletecontent}?cid=${content.cid}|" class="tablelink"> 删除</a></td>
         </tr> 
                 
         </tbody>
@@ -118,10 +136,10 @@ $(document).ready(function(){
   		<table class="tablelist">
     
         <tbody>
-        <tr>
-        <td>20130908</td>
+        <tr th:each="content:${session.nextcontentconlist}">
+        <td th:text="${content.content}">20130908</td>
         
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
+        <td> <a href="#" th:href="|@{deletecontent}?cid=${content.cid}|" class="tablelink"> 删除</a></td>
         </tr> 
         
         
@@ -139,10 +157,10 @@ $(document).ready(function(){
     		<table class="tablelist">
    
         <tbody>
-        <tr>
-        <td>20130908</td>
+        <tr th:each="content:${session.nextcontentprolist}">
+        <td th:text="${content.content}">20130908</td>
         
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
+        <td>   <a href="#" class="tablelink" th:href="|@{deletereport}?cid=${content.cid}|"> 删除</a></td>
         </tr> 
        
         </tbody>
@@ -153,34 +171,37 @@ $(document).ready(function(){
   	
   	
   	
-  	</table>  
-      
+  	</table> 
+  	</div> 
+    </form>  
     
-    <div class="tip">
-    	<div class="tiptop"><span>提示信息</span><a></a></div>
-        
+    <div class="tip" style="width: 600px;height: 300px">
+    	<div class="tiptop"><span>添加周报</span><a></a></div>
+      <form action="addreport" method="post">
       <div class="tipinfo">
-        <span><img src="images/ticon.png" /></span>
         <div class="tipright">
-        <p>是否确认对信息的修改 ？</p>
-        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
-        </div>
-        </div>
-        
-        <div class="tipbtn">
-        <input name="" type="button"  class="sure" value="确定" />&nbsp;
-        <input name="" type="button"  class="cancel" value="取消" />
-        </div>
+        <input type="hidden" name="part_id" th:value="${session.teacheritem.part.pid}"></input>
+        <input type="hidden" name="classes_id" th:value="${session.teacheritem.classes.classes_id}"></input>
+        <input type="hidden" name="teacher_id" th:value="${session.teacheritem.tid}"></input>
+    <ul class="forminfo">
+    <li><label>周报内容</label><input name="content" type="text" class="dfinput"></input></li>
+    <li><label>类型</label><select name="type">
+    							<option value="condition">工作情况</option>
+    							<option value="problem">问题协助</option>
+    						 </select></li>
+    <li><label>时间</label><cite><input name="date" type="date" ></input></cite></li>
+    <li><label>&nbsp;</label><input type="submit" class="btn" value="确认保存" ></input></li>
+   </ul>
+   </div>
     
+   </div>
+    </form>  
     </div>
-      
-    
-    
-    </div>
+     
     
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
 	</script>
-	</form>
+	
 </body>
 </html>
