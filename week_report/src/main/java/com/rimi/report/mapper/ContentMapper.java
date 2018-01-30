@@ -3,7 +3,10 @@ package com.rimi.report.mapper;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.rimi.report.entity.Content;
 @Mapper
@@ -13,7 +16,7 @@ public interface ContentMapper {
 	 * 删除内容
 	 * @param id
 	 */
-	public void delete(int id);
+	public void delete(int cid);
 	
 	/**
 	 * 添加内容
@@ -21,7 +24,7 @@ public interface ContentMapper {
 	 * @return 返回1添加成功
 	 */
 	
-	public int add(Content content);
+	public int add(@Param("content")String content,@Param("type")String type,@Param("date")String date,@Param("part_id")int part_id,@Param("classes_id")int classes_id,@Param("teacher_id")int teacher_id);
 	/**
 	 * 查询内容
 	 * @param ID

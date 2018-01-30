@@ -48,9 +48,6 @@ $(document).ready(function(){
     <div class="tools">
     
     	<ul class="toolbar">
-        <li class="click"><span><img src="images/t01.png" /></span>添加</li>
-        <li class="click"><span><img src="images/t02.png" /></span>修改</li>
-        <li><span><img src="images/t03.png" /></span>删除</li>
         <li><span><img src="images/t04.png" /></span>统计</li>
         </ul>
         
@@ -88,14 +85,14 @@ $(document).ready(function(){
         <td th:text="${content.classes.classes}">已审核</td>
         <td th:text="${content.teacher.teacher_name}">已审核</td>
         <td th:text="${content.teacher.teacher_tel}">已审核</td>
-        <td><a href="#" th:href="|@{/report}?tid=${content.teacher.tid}|" class="tablelink">查看该教师周报</a>     <a href="#" class="tablelink"> 删除</a></td>
+        <td><a href="#" th:href="|@{/report}?tid=${content.teacher.tid}|" class="tablelink">查看该教师周报</a>     <a href="#" class="tablelink" th:href="|@{/deletereport}?cid=${content.cid}|"> 删除</a></td>
         </tr> 
                 
         </tbody>
     </table>
     
    
-    <div class="pagin">
+   <!--  <div class="pagin">
     	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
         <ul class="paginList">
         <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
@@ -108,7 +105,7 @@ $(document).ready(function(){
         <li class="paginItem"><a href="javascript:;">10</a></li>
         <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
         </ul>
-    </div>
+    </div> -->
     
     
     <div class="tip">

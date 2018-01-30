@@ -11,11 +11,11 @@ public interface ContentService {
 	/**
 	 * 添加内容
 	 */
-	void add(Content content);
+	void add(String content,String type,String date,int pid,int cid,int tid);
 	/**
 	 * 删除内容
 	 */
-	void delete(Content content);
+	void delete(int cid);
 	/**
 	 * 更新内容
 	 */

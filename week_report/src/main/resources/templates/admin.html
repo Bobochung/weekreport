@@ -44,7 +44,7 @@ $(document).ready(function(){
     <div class="rightinfo">
     
     <div class="tools">
-    <form action="conditionlist" method="post" name="form1">
+    <form action="/conditionlist" method="post" name="form1">
     	<ul class="toolbar">
         <li class="click"><span><img src="images/t01.png" /></span>添加</li>
                     
@@ -81,7 +81,7 @@ $(document).ready(function(){
         <td th:text="${admin.admin_name}">20130908</td>
         <td th:text="${admin.admin_password}">>王金平幕僚：马英九声明字字见血 人活着没意思</td>
         <td th:text="${admin.admin_tel}">admin</td>
-        <td><a href="#" th:href="|@{/update}?aid=${admin.aid}|" class="tablelink">查看</a>     <a href="#" th:href="|@{/deleteAdmin}?aid=${admin.aid}|" class="tablelink"> 删除</a></td>
+        <td><a href="#" th:href="|@{/update}?aid=${admin.aid}|" class="tablelink">修改</a>     <a href="#" th:href="|@{/deleteAdmin}?aid=${admin.aid}|" class="tablelink"> 删除</a></td>
         </tr>      
         </tbody>
     </table>

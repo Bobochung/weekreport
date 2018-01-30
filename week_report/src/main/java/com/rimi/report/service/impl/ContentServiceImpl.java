@@ -19,14 +19,14 @@ public class ContentServiceImpl implements ContentService {
 	ContentMapper contentmapper;
 	
 	@Override
-	public void add(Content content) {
-		// TODO Auto-generated method stub
-
+	public void add(String content,String type,String date,int pid,int cid,int tid) {
+		contentmapper.add(content,type,date,pid,cid,tid);
 	}
 
 	@Override
-	public void delete(Content content) {
+	public void delete(int cid) {
 		// TODO Auto-generated method stub
+		contentmapper.delete(cid);
 
 	}
 
