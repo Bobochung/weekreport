@@ -1,6 +1,7 @@
 package com.rimi.report.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -49,6 +50,6 @@ public interface TeacherService {
 	Teacher getByName(String name);
 	
 	
-	List<Teacher> list(HttpServletRequest request);
+	List<Teacher> list(HttpServletRequest request,Map<String, Object> map);
 
 }

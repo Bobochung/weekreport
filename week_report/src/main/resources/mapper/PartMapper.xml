@@ -17,7 +17,15 @@
 		update Part set part_name=#{part_name} where pid= #{pid}
 	</update>
 	<select id="list" resultType="Part">
-		select * from Part		
+		select * from Part
+		<where>
+		<if test="pid!=null and aid!=0">
+		and pid = #{pid}
+		</if>	
+		<if test="part_name!=null">
+		and part_name like concat('%',#{part_name},'%')
+		</if>
+		</where>	
 	</select>
     <select id="total" resultType="int">
 		select count(*) from Part

@@ -60,7 +60,7 @@ public class AdminController {
 		return "updateAdmin";		
 	}
 	
-	@RequestMapping("conditionlist")
+	@RequestMapping("admin/conditionlist")
 	public String conditionlist(HttpServletRequest request,Map<String, Object> map) {
 		if (request.getParameter("conditionkey")!=null) {
 			map.put(request.getParameter("conditionkey"), request.getParameter("conditionvalue"));

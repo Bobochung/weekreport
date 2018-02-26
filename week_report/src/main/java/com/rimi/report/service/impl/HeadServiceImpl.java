@@ -99,8 +99,9 @@ public class HeadServiceImpl implements HeadService {
 	}
 
 	@Override
-	public List<Head> list(Map<String, Object> map) {
+	public List<Head> list(HttpServletRequest request,Map<String, Object> map) {
 		// TODO Auto-generated method stub
+		request.getSession().setAttribute(Keys.HEAD_LIST, headMapper.list(map));
 		return headMapper.list(map);
 	}
 

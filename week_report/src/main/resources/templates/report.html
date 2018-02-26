@@ -39,6 +39,7 @@ $(document).ready(function(){
  
 
 });
+
 </script>
 
 
@@ -51,7 +52,7 @@ $(document).ready(function(){
     <span>位置：</span>
     <ul class="placeul">
     <li><a href="#" th:href="@{index}">首页</a></li>
-    <li><a href="#" th:href="@{reportlist}">全部周报</a></li>
+    <li><a href="#" th:href="@{reportlist}">周报详情</a></li>
     </ul>
     </div>
     
@@ -70,7 +71,7 @@ $(document).ready(function(){
   	<table class="tablelist" border="2">
   	
   		<tr>
-  		<td align="center" style="font-size: 30px;" colspan="3">一周工作总结汇报表</td>
+  		<td align="center" style="font-size: 30px;" colspan="3">工作总结汇报表</td>
   		</tr>
   		<tr>
   		<td align="center" style="font-size: 20px;" colspan="3">
@@ -100,6 +101,10 @@ $(document).ready(function(){
    
         <td>   <a href="#" class="tablelink" th:href="|@{deletecontent}?cid=${content.cid}|"> 删除</a></td>
         </tr> 
+        <tr style="height: 30px;" >
+        <td><input type="text" style="height: 30px;width:680px"></input></td> 
+        <td><input type="submit" value="添加"></input></td>       
+        </tr>
             
                 
         </tbody>
@@ -118,6 +123,10 @@ $(document).ready(function(){
         <td th:text="${content.content}">20130908</td>  
         <td> <a href="#" th:href="|@{deletecontent}?cid=${content.cid}|" class="tablelink"> 删除</a></td>
         </tr> 
+        <tr style="height: 30px;" >
+        <td><input type="text" style="height: 30px;width:680px"></input></td> 
+        <td><input type="submit" value="添加"></input></td>       
+        </tr>
                 
         </tbody>
     </table>
@@ -141,7 +150,10 @@ $(document).ready(function(){
         
         <td> <a href="#" th:href="|@{deletecontent}?cid=${content.cid}|" class="tablelink"> 删除</a></td>
         </tr> 
-        
+        <tr style="height: 30px;" >
+        <td><input type="text" style="height: 30px;width:680px"></input></td> 
+        <td><input type="submit" value="添加"></input></td>       
+        </tr>
         
      
      
@@ -162,7 +174,10 @@ $(document).ready(function(){
         
         <td>   <a href="#" class="tablelink" th:href="|@{deletereport}?cid=${content.cid}|"> 删除</a></td>
         </tr> 
-       
+       <tr style="height: 30px;" >
+        <td><input type="text" style="height: 30px;width:680px"></input></td> 
+        <td><input type="submit" value="添加"></input></td>       
+        </tr>
         </tbody>
     </table>
   		

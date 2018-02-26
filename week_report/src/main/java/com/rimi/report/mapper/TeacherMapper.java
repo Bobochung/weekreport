@@ -4,12 +4,10 @@ import java.util.List;
 
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.rimi.report.entity.Head;
 import com.rimi.report.entity.Teacher;
 
 @Mapper
@@ -49,7 +47,7 @@ public interface TeacherMapper {
 	 * @return 返回包含对象的list
 	 */
 	
-	public List<Teacher> list(Map<String, String> map);
+	public List<Teacher> list(Map<String, Object> map);
 	
 	/**
 	 * 查询总数

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#" th:href="@{/index}">首页</a></li>
+    <li><a href="#" >修改主管信息</a></li>
+    </ul>
+    </div>
+    
+    	<div class="tiptop"><span>主管信息</span><a th:href="@{/head}"></a></div>
+        <form method="post" action="updateHead" name="form1" onSubmit="return mycheck();"> 
+        <div class="tipinfo">
+     
+        <div class="tipright">
+        <cite><input type="hidden" style="width: 280px;height: 35px" id="Username" name="hid" th:value="${session.headitem.hid}"/></cite><br/>
+        <cite>用户名:<input type="text" style="width: 280px;height: 35px"  name="head_name" th:value="${session.headitem.head_name}"/></cite><br/>
+       <cite>密码:<input type="text" style="width: 280px;height: 35px" name="head_password"  th:value="${session.headitem.head_password}"/></cite><br/>
+       <cite><input type="hidden" style="width: 280px;height: 35px" name="pid" th:value="${session.headitem.part.pid}"/></cite><br/>
+       <cite>部门:<input type="text" style="width: 280px;height: 35px" name="part_name"  th:value="${session.headitem.part.part_name}"/></cite><br/>
+       <cite>联系方式:<input type="text" style="width: 280px;height: 35px" name="head_tel"  th:value="${session.headitem.head_tel}"/></cite><br/>
+        </div>
+        </div>
+        
+        <div class="tipbtn">
+        <input name="" type="submit"  class="sure" value="确定" />&nbsp;
+      	<input type="button"  onclick="javascript:history.back(-1);" class="cancel" value="返回"></input>
+        </div>
+   	    </form>
+    
+    
+    
+      
+</body>
+</html>

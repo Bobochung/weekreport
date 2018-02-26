@@ -21,7 +21,10 @@
 		<where>
             <if test="classes!=null">
                 and classes like concat('%',#{classes},'%')
-            </if>                
+            </if> 
+            <if test="classes_id!=null and classes_id!=0">
+                and classes_id = #{classes_id} 
+            </if>               
         </where> 
 	</select>
     <select id="total" resultType="int">

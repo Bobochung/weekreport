@@ -47,14 +47,6 @@ $(document).ready(function(){
     
     <div class="tools">
     
-    	<ul class="toolbar">
-        <li><span><img src="images/t04.png" /></span>统计</li>
-        </ul>
-        
-        
-        <ul class="toolbar1">
-        <li><span><img src="images/t05.png" /></span>设置</li>
-        </ul>
     
     </div>
     
@@ -85,7 +77,7 @@ $(document).ready(function(){
         <td th:text="${content.classes.classes}">已审核</td>
         <td th:text="${content.teacher.teacher_name}">已审核</td>
         <td th:text="${content.teacher.teacher_tel}">已审核</td>
-        <td><a href="#" th:href="|@{/report}?tid=${content.teacher.tid}|" class="tablelink">查看该教师周报</a>     <a href="#" class="tablelink" th:href="|@{/deletereport}?cid=${content.cid}|"> 删除</a></td>
+        <td><a href="#" class="tablelink" th:href="|@{/deletereport}?cid=${content.cid}|"> 删除</a></td>
         </tr> 
                 
         </tbody>

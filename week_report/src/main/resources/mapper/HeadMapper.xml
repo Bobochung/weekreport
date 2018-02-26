@@ -10,23 +10,32 @@
 		delete from head where hid= #{hid}
 	</delete>
 
-	<select id="get" parameterType="int" resultType="head">
-		select * from head where hid= #{hid}
+	<select id="get" parameterType="int" resultMap="Headbean">
+		select p.*,h.*  from head h left join  part p
+		on p.pid = h.part_id
+		
+		 where hid= #{hid}
 	</select>
 
 	<update id="update" parameterType="head">
 		update head set head_name=#{head_name},head_password=#{head_password},head_tel=#{head_tel} where hid=#{hid}
 	</update>
 	<select id="list" resultMap="Headbean">
-		select p.*,h.*  from part p left join head h 
+		select p.*,h.*  from head h left join  part p
 		on p.pid = h.part_id
 		<where>
-            <if test="name!=null">
-                and head_name like concat('%',#{name},'%')
-            </if>        
-            <!-- <if test="price!=null and price!=0">
-                and price > #{price}
-            </if> -->
+            <if test="head_name!=null">
+                and head_name like concat('%',#{head_name},'%')
+            </if>  
+            <if test="head_tel!=null">
+                and head_tel like concat('%',#{head_tel},'%')
+            </if>
+             <if test="part_id!=null and part_id!=0">
+                and hid = #{hid}
+            </if>     
+            <if test="hid!=null and hid!=0">
+                and hid = #{hid}
+            </if>
         </where> 
 	</select>
     <select id="total" resultType="int">

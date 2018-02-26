@@ -52,6 +52,6 @@ public interface HeadService {
 	/**
 	 * 得到主管列表
 	 */
-	List<Head> list(Map<String, Object> map);
+	List<Head> list(HttpServletRequest request,Map<String, Object> map);
 
 }

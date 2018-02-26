@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery.js"></script>
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+<script type="text/javascript"  th:src="@{/js/jquery.js}"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -44,9 +44,9 @@ $(document).ready(function(){
     <div class="rightinfo">
     
     <div class="tools">
-    <form action="/conditionlist" method="post" name="form1">
+    <form action="admin/conditionlist" method="post" name="form1">
     	<ul class="toolbar">
-        <li class="click"><span><img src="images/t01.png" /></span>添加</li>
+        <li class="click"><span><img th:src="@{/images/t01.png}" /></span>添加</li>
                     
         <li>查询条件： 
         <select name="conditionkey" id="condition" class="selectcondition" style="width: 100px">
@@ -112,13 +112,13 @@ $(document).ready(function(){
         
         <cite>用户名:<input type="text" style="width: 280px;height: 35px" id="Username" placeHolder="请输入用户名" name="admin_name"/></cite><br/>
         <cite>密码：&nbsp;<input type="password" style="width: 280px;height: 35px" id="Username" placeHolder="请输入密码" name="admin_password"/></cite><br/>
-    		<cite>密码：&nbsp;<input type="text" style="width: 280px;height: 35px" id="Username" placeHolder="请输入联系方式" name="admin_tel"/></cite><br/>
+    		<cite>联系方式：&nbsp;<input type="text" style="width: 280px;height: 35px" id="Username" placeHolder="请输入联系方式" name="admin_tel"/></cite><br/>
         </div>
         </div>
         
         <div class="tipbtn">
-        <input name="" type="submit"  class="sure" value="确定" />&nbsp;
-        <input name="" type="button"  class="cancel" value="取消" />
+        <input  type="submit"  class="sure" value="确定" />&nbsp;
+        <input  type="button"  class="cancel" value="取消" />
         
         </div>
    	    </form>

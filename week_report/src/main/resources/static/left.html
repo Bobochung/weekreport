@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="js/jquery.js"></script>
+<link th:href="css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" th:src="js/jquery.js"></script>
 
 <script type="text/javascript">
 $(function(){	
@@ -30,7 +30,7 @@ $(function(){
 </head>
 
 <body style="background:#f0f9fd;">
-	<div class="lefttop"><span></span>功能列表</div>
+	<!-- <div class="lefttop"><span></span>功能列表</div>
     
     <dl class="leftmenu">
         
@@ -40,13 +40,12 @@ $(function(){
     </div>
     	<ul class="menuson">
         <li class="active"><cite></cite><a th:href="@{/index}" href="index.html" target="rightFrame">操作台</a><i></i></li>
-        <li><cite></cite><a href="imgtable.html" th:href="@{/index}" target="rightFrame">个人中心</a><i></i></li>
-        <li><cite></cite><a href="form.html" th:href="@{/index}" target="rightFrame">密码修改</a><i></i></li>
+        <li><cite></cite><a th:href="@{/index}" target="rightFrame">个人中心</a><i></i></li>
+        <li><cite></cite><a th:href="@{/index}" target="rightFrame">密码修改</a><i></i></li>
         
- 
         </ul>    
     </dd> 
     
-    </dl>
+    </dl> -->
 </body>
 </html>

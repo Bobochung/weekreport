@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery.js"></script>
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -44,26 +44,24 @@ $(document).ready(function(){
     <div class="rightinfo">
     
     <div class="tools">
-    
+    <form action="conditionlistHead" method="post" name="form1">
     	<ul class="toolbar">
+    
         <li class="click"><span><img src="images/t01.png" /></span>添加</li>
-        <li class="click"><span><img src="images/t02.png" /></span>修改</li>
-        <li><span><img src="images/t03.png" /></span>删除</li>
-        <li><span><img src="images/t04.png" /></span>查询</li>
         <li>查询条件：
-        <select name="condition" id="condition" class="selectcondition" style="width: 100px">
+        <select name="conditionHkey" id="condition" class="selectcondition" style="width: 100px">
                     <option value="">请选择</option>
-                    <option value="id">ID</option>
-                    <option value="name">姓名</option>
-                    <option value="tel">电话</option>
+                    <option value="hid">ID</option>
+                    <option value="head_name">姓名</option>
+                    <option value="part_id">部门</option>
+                    <option value="head_tel">电话</option>
         </select>
+        <input type="text" name="conditionHvalue" ></input> 
         </li>
+        <li><span><input type="submit" value="查询"></input></span> </li>
         </ul>
         
-        
-        <ul class="toolbar1">
-        <li><span><img src="images/t05.png" /></span>设置</li>
-        </ul>
+      </form>  
     
     </div>
     
@@ -87,13 +85,13 @@ $(document).ready(function(){
         <td th:text="${head.head_password}">admin</td>
         <td th:text="${head.part.part_name}">江苏南京</td>
         <td th:text="${head.head_tel}">2013-09-09 15:05</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
+        <td><a href="#" th:href="|@{/updateH}?hid=${head.hid}|" class="tablelink">查看</a>     <a href="#" th:href="|@{deleteHead}?hid=${head.hid}|" class="tablelink">删除</a></td>
         </tr> 
                 
         </tbody>
     </table>
     
-   
+   <!-- 
     <div class="pagin">
     	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
         <ul class="paginList">
@@ -107,24 +105,30 @@ $(document).ready(function(){
         <li class="paginItem"><a href="javascript:;">10</a></li>
         <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
         </ul>
-    </div>
+    </div> -->
     
     
     <div class="tip">
-    	<div class="tiptop"><span>提示信息</span><a></a></div>
-        
-      <div class="tipinfo">
-        <span><img src="images/ticon.png" /></span>
-        <div class="tipright">
-        <p>是否确认对信息的修改 ？</p>
-        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+    	<div class="tiptop"><span>添加主管</span></div>
+       <form method="post" action="addHead" name="form1" onSubmit="return mycheck();"> 
+        <div class="tipinfo">
+     
+        <div class="tipright">     
+       <!-- <cite><input type="hidden" style="width: 280px;height: 35px" id="Username" name="hid" th:value="${session.headitem.hid}"/></cite><br/>
+        <cite>用户名:<input type="text" style="width: 280px;height: 35px"  name="head_name" th:value="${session.headitem.head_name}"/></cite><br/>
+       <cite>密码:<input type="text" style="width: 280px;height: 35px" name="head_password"  th:value="${session.headitem.head_password}"/></cite><br/>
+       <cite><input type="hidden" style="width: 280px;height: 35px" name="pid" th:value="${session.headitem.part.pid}"/></cite><br/>
+       <cite>部门:<input type="text" style="width: 280px;height: 35px" name="part_name"  th:value="${session.headitem.part.part_name}"/></cite><br/>
+       <cite>联系方式:<input type="text" style="width: 280px;height: 35px" name="head_tel"  th:value="${session.headitem.head_tel}"/></cite><br/>   -->     
         </div>
         </div>
         
         <div class="tipbtn">
-        <input name="" type="button"  class="sure" value="确定" />&nbsp;
+        <input name="" type="submit"  class="sure" value="确定" />&nbsp;
         <input name="" type="button"  class="cancel" value="取消" />
+        
         </div>
+   	    </form>
     
     </div>
     

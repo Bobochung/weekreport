@@ -18,46 +18,42 @@
     </ul>
     </div>
     
-    <div class="mainindex">
+    <div class="formbody">
     
+    <div class="formtitle"><span>常用功能</span></div>
     
-    <div class="welinfo">
-    <span><img src="images/sun.png" alt="天气" /></span>
-    <b><a th:text="${session.name}"></a>欢迎使用周报系统</b>
-    </div>
-   
-    
-    <div class="xline"></div>
-    
-    <ul class="iconlist" th:switch="${session.type}">
-    
-    
-    <li th:case="head">
-	<img src="images/ico02.png" /><p><a href="#" th:href="@{/teacher}">教师管理</a></p>
-	<img src="images/ico02.png" /><p><a href="#" th:href="@{/report}">周报管理</a></p>
-    </li>
-    <li th:case="teacher">
-    <img src="images/ico02.png" /><p><a href="#" th:href="@{/report}">周报管理</a></p>
-    </li>
-    <li th:case="admin">
-    <img src="images/ico03.png" /><p><a href="#" th:href="@{/admin}">管理员管理</a></p>
-    <img src="images/ico02.png" /><p><a href="#" th:href="@{/teacher}">教师管理</a></p>
-    <img src="images/ico01.png" /><p><a href="#" th:href="@{/head}">主管管理</a></p>
-    <img src="images/ico02.png" /><p><a href="#" th:href="@{/classes}">班级管理</a></p>
-    <img src="images/ico02.png" /><p><a href="#" th:href="@{/part}">部门管理</a></p>
-    <img src="images/ico02.png" /><p><a href="#" th:href="@{/reportlist}">全部周报管理</a></p>
-    </li>
-    
-            
+    <div class="toolsli" th:switch="${session.type}">
+    <ul class="toollist" th:case="admin">
+    <li><a href="#" th:href="@{/admin}"><img src="images/i01.png" /></a><h2>管理员管理</h2></li>
+    <li><a href="#" th:href="@{/head}"><img src="images/i02.png" /></a><h2>主管管理</h2></li>
+    <li><a href="#" th:href="@{/teacher}"><img src="images/i03.png" /></a><h2>教师管理</h2></li>
+    <li><a href="#" th:href="@{/classes}"><img src="images/i04.png" /></a><h2>班级管理</h2></li>
+    <li><a href="#" th:href="@{/part}"><img src="images/i05.png" /></a><h2>部门管理</h2></li>
+    <li><a href="#" th:href="@{/reportlist}"><img src="images/i05.png" /></a><h2>周报管理</h2></li>
     </ul>
-   
-    <span th:text="${session.size()}">123</span>
+    
+    <ul class="toollist" th:case="teacher">
+    <li><a href="#" th:href="@{/reportlist}"><img src="images/i01.png" /></a><h2>周报管理</h2></li>
+    <li><a href="#" th:href="@{/classes}"><img src="images/i02.png" /></a><h2>班级管理</h2></li>
+    </ul>
+    
+    <ul class="toollist" th:case="head">
+    <li><a href="#" th:href="@{/classes}"><img src="images/i01.png" /></a><h2>班级管理</h2></li>
+    <li><a href="#" th:href="@{/reportlist}"><img src="images/i02.png" /></a><h2>周报管理</h2></li>
+    <li><a href="#" th:href="@{/part}"><img src="images/i03.png" /></a><h2>部门管理</h2></li>
+    </ul>
+        
+    
+    </div>
+    </div>
+    
+   <!--  <span th:text="${session.size()}">123</span>
     <table>
     <tr th:each="attr : ${session.keySet()}">
             <td th:text="${attr}"></td>
             <td th:text="${session.get(attr)}">/tmp</td>
         </tr>
-    </table>
-    </div>
+    </table> -->
+    
 </body>
 </html>

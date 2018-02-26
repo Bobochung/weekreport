@@ -24,6 +24,26 @@
 		select t.*,p.*,cla.*  from teacher t
 		left join part p on t.part_id = p.pid
 		left join classes cla on t.classes_id = cla.classes_id
+		<where>
+            <if test="teacher_name!=null">
+                and teacher_name like concat('%',#{teacher_name},'%')
+            </if>  
+            <if test="teacher_tel!=null">
+                and teacher_tel like concat('%',#{teacher_tel},'%')
+            </if> 
+            <if test="tid!=null and tid!=0">
+                and tid = #{tid} 
+            </if> 
+            <if test="part_name!=null">
+                and p.part_name like concat('%',#{part_name},'%')
+            </if>
+            <if test="classes_name!=null">
+                and cla.classes like concat('%',#{classes_name},'%')
+            </if>
+                         
+        </where>
+		
+		
 	</select>
     <select id="total" resultType="int">
 		select count(*) from teacher

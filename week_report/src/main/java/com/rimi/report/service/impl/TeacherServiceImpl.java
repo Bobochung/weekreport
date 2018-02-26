@@ -2,6 +2,7 @@ package com.rimi.report.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -92,9 +93,9 @@ public class TeacherServiceImpl implements TeacherService{
 	}
 
 	@Override
-	public List<Teacher> list(HttpServletRequest request) {
+	public List<Teacher> list(HttpServletRequest request,Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		request.getSession().setAttribute(Keys.TEACHER_LIST, teacherMapper.list(new HashMap<>()));
+		request.getSession().setAttribute(Keys.TEACHER_LIST, teacherMapper.list(map));
 		return null;
 	}
 	

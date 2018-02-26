@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery.js"></script>
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -23,7 +23,18 @@ $(document).ready(function(){
   $(".cancel").click(function(){
   $(".tip").fadeOut(100);
 });
-
+ 
+    $.ajax({    
+        type: "get",    
+        url: 'partlist',
+        async:true//是否异步        
+    });
+    $.ajax({    
+        type: "get",    
+        url: 'clalist',
+        async:true//是否异步        
+    });
+  
 });
 </script>
 
@@ -44,28 +55,25 @@ $(document).ready(function(){
     <div class="rightinfo">
     
     <div class="tools">
-    
+      <form action="teacher/conditionlist" method="post" name="form1"> 
     	<ul class="toolbar">
-        <li class="click"><span><img src="images/t01.png" /></span>添加</li>
-        <li class="click"><span><img src="images/t02.png" /></span>修改</li>
-        <li><span><img src="images/t03.png" /></span>删除</li>
-        <li><span><img src="images/t04.png" /></span>查询</li>
+        <li class="click"><span><img th:src="@{/images/t01.png}" /></span>添加</li>
         <li>查询条件：
-        <select name="condition" id="condition" class="selectcondition" style="width: 100px">
+        <select name="conditionkey" id="condition" class="selectcondition" style="width: 100px">
                     <option value="">请选择</option>
-                    <option value="id">ID</option>
-                    <option value="date">日期</option>
-                    <option value="content">内容</option>
+                    <option value="tid">ID</option>
+                    <option value="teacher_name">用户名</option>
+                    <option value="part_name">部门</option>
+                    <option value="classes_name">班级</option>
+                    <option value="teacher_tel">联系方式</option>
                     
         </select>
+        <input type="text" name="conditionvalue" ></input>   
         </li>
+        <li><span><input type="submit" value="查询"></input></span> </li>
         </ul>
-        
-        
-        <ul class="toolbar1">
-        <li><span><img src="images/t05.png" /></span>设置</li>
-        </ul>
-    
+              
+    	</form>
     </div>
     
     
@@ -86,18 +94,18 @@ $(document).ready(function(){
         <tr th:each="teacher:${session.teacherlist}">
         <td th:text="${teacher.tid}"></td>
         <td th:text="${teacher.teacher_name}">20130908</td>
-        <td th:text="${teacher.teacher_password}">王金平幕僚：马英九声明字字见血 人活着没意思</td>
+        <td th:text="${teacher.teacher_password}"></td>
         <td th:text="${teacher.part.part_name}">admin</td>
         <td th:text="${teacher.classes.classes}">江苏南京</td>
         <td th:text="${teacher.teacher_tel}">2013-09-09 15:05</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
+        <td><a href="#"  th:href="|@{/report}?tid=${teacher.tid}|" class="tablelink">查看该教师周报</a>     <a href="#" class="tablelink" th:href="@{deleteteacher?tid=${teacher.tid}}"> 删除</a></td>
         </tr> 
                 
         </tbody>
     </table>
     
    
-    <div class="pagin">
+    <!-- <div class="pagin">
     	<div class="message">共<i class="blue">12</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
         <ul class="paginList">
         <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
@@ -111,28 +119,40 @@ $(document).ready(function(){
         <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
         </ul>
     </div>
+     -->
     
-    
-    <div class="tip">
-    	<div class="tiptop"><span>提示信息</span><a></a></div>
+    <div class="tip" style="height: 400px">
+    	<div class="tiptop"><span>添加教师</span><a></a></div>
         
-      <div class="tipinfo">
-        <span><img src="images/ticon.png" /></span>
+      <form method="post" action="addTeacher" name="form1" onSubmit="return mycheck();"> 
+        <div class="tipinfo">
+     
         <div class="tipright">
-        <p>是否确认对信息的修改 ？</p>
-        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
-        </div>
+        
+        <cite>用户名:<input type="text" style="width: 280px;height: 35px" id="Username" placeHolder="请输入用户名" name="admin_name"/></cite><br/>
+        <cite>密码：&nbsp;<input type="password" style="width: 280px;height: 35px" id="Username" placeHolder="请输入密码" name="admin_password"/></cite><br/>
+    		<cite>部门：&nbsp;<select id="pid" name="pid">
+    						<option value="">请选择部门</option>
+    						<option th:each="partitem:${session.partlist}" th:value="${partitem.pid}" th:text="${partitem.part_name}"></option>
+    						</select></cite><br/>
+        <cite>部门：&nbsp;<select id="classes_id" name="classes_id">
+    						<option value="">请选择班级</option>
+    						<option th:each="claitem:${session.clalist}" th:value="${claitem.classes_id}" th:text="${claitem.classes}"></option>
+    						</select></cite><br/>
+        <cite>联系方式：&nbsp;<input type="text" style="width: 280px;height: 35px" id="Username" placeHolder="请输入联系方式" name="admin_tel"/></cite><br/></div>
         </div>
         
         <div class="tipbtn">
-        <input name="" type="button"  class="sure" value="确定" />&nbsp;
-        <input name="" type="button"  class="cancel" value="取消" />
+        <input  type="submit"  class="sure" value="确定" />&nbsp;
+        <input  type="button"  class="cancel" value="取消" />
+        
         </div>
+   	    </form>
+    
+   
+    
     
     </div>
-    
-    
-    
     
     </div>
     

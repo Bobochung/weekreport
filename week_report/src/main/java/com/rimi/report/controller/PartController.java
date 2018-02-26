@@ -21,6 +21,8 @@ public class PartController {
 	
 	@RequestMapping("part")
 	public String admin(HttpServletRequest request,Map<String, Object> map) {	
+		
+		
 	  ps.list(request,map);
 	  return "part";
 	}
@@ -63,5 +65,6 @@ public class PartController {
 		ps.list(request, map);
 		return "part";		
 	}
+	
 
 }
