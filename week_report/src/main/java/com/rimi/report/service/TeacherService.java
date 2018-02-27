@@ -47,7 +47,7 @@ public interface TeacherService {
 	 * @param name
 	 * @return 返回Teacher不为空，则该用户已经注册
 	 */
-	Teacher getByName(String name);
+	List<Teacher> getByName(String name);
 	
 	
 	List<Teacher> list(HttpServletRequest request,Map<String, Object> map);

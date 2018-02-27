@@ -87,7 +87,7 @@ public class TeacherServiceImpl implements TeacherService{
 	}
 
 	@Override
-	public Teacher getByName(String name) {
+	public List<Teacher> getByName(String name) {
 		
 		return teacherMapper.getByName(name);
 	}

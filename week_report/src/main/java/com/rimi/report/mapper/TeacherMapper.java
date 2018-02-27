@@ -68,6 +68,6 @@ public interface TeacherMapper {
 	 * @param name
 	 * @return 返回Teacher不为空，则该用户已经注册
 	 */
-	public Teacher getByName(String name);
+	public List<Teacher> getByName(String name);
 	
 }

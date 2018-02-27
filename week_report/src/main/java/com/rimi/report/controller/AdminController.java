@@ -26,29 +26,29 @@ public class AdminController {
 	}
 	
 	@RequestMapping("addAdmin") 
-    public String add(HttpServletRequest request,Map<String, Object> map) { 
-		Admin admin = new Admin();
-		admin.setAdmin_name(request.getParameter("admin_name"));
-		admin.setAdmin_password(request.getParameter("admin_password"));
-		admin.setAdmin_tel(request.getParameter("admin_tel"));
+    public String add(HttpServletRequest request,Map<String, Object> map,Admin admin) { 
+//		Admin admin = new Admin();
+//		admin.setAdmin_name(request.getParameter("admin_name"));
+//		admin.setAdmin_password(request.getParameter("admin_password"));
+//		admin.setAdmin_tel(request.getParameter("admin_tel"));
 		as.addAdmin(admin);
 		as.list(request,map);
 		return "admin";
     }
 	
 	@RequestMapping("deleteAdmin")
-	public String deleteAdmin(HttpServletRequest request,Map<String, Object> map) {	
-	  as.delete(Integer.parseInt(request.getParameter("aid")));
+	public String deleteAdmin(HttpServletRequest request,Map<String, Object> map,Admin admin) {	
+	  as.delete(admin.getAid());
 	  as.list(request,map);
 	  return "admin";
 	}
 	@RequestMapping("updateAdmin")
-	public String updateAdmin(HttpServletRequest request,Map<String, Object> map) {	
-		Admin admin = new Admin();
-		admin.setAid(Integer.parseInt(request.getParameter("aid")));
-		admin.setAdmin_name(request.getParameter("admin_name"));
-		admin.setAdmin_password(request.getParameter("admin_password"));
-		admin.setAdmin_tel(request.getParameter("admin_tel"));
+	public String updateAdmin(HttpServletRequest request,Map<String, Object> map,Admin admin) {	
+//		Admin admin = new Admin();
+//		admin.setAid(Integer.parseInt(request.getParameter("aid")));
+//		admin.setAdmin_name(request.getParameter("admin_name"));
+//		admin.setAdmin_password(request.getParameter("admin_password"));
+//		admin.setAdmin_tel(request.getParameter("admin_tel"));
 		as.update(admin);
 	  as.list(request,map);
 	  return "admin";

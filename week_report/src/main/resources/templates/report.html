@@ -36,6 +36,19 @@ $(document).ready(function(){
           }  
       });  
   } 
+  function add() {  
+      $.ajax({    
+          type: "post",    
+          url: 'reportitem',
+          async:true,//是否异步
+          data: {  
+        	  	tid: $("#tid").val(),  
+        	  	classes_id: $("#classes_id").val(),  
+        	  	beginTime: $("#beginTime").val(),  
+        	  	endTime : $("#endTime").val(),  
+          }  
+      });  
+  }
  
 
 });

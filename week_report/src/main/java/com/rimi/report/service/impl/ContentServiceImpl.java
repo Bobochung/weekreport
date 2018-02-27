@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.omg.CORBA.PRIVATE_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +44,21 @@ public class ContentServiceImpl implements ContentService {
 	}
 
 	@Override
-	public List<Content> list(HttpServletRequest request,Map<String, Object> map) {
+	public void getReports(Map<String, Map<String, Object>> condition,HttpServletRequest request) {
+		
+		
+		for(Map.Entry<String, Map<String, Object>> item : condition.entrySet()) {
+			
+			setReportToSession(request,item.getKey(),item.getValue());
+		}
+	}
+	
+	private void setReportToSession(HttpServletRequest request,String key,Map<String, Object> value) {
+		request.getSession().setAttribute(key, getReport(request, value));
+	}
+	
+	
+	private List<Content> getReport(HttpServletRequest request,Map<String, Object> map) {
 		return contentmapper.list(map);
 	}
 

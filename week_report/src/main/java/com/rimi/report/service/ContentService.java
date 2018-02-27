@@ -26,10 +26,7 @@ public interface ContentService {
 	 */
 	int total();
 	
-	/**
-	 * 得到内容列表
-	 */
-	List<Content> list(HttpServletRequest request,Map<String, Object> map);
+	public void getReports(Map<String, Map<String, Object>> condition,HttpServletRequest request);
 	/**
 	 * 根据ID得到内容
 	 * @return
